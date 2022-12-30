@@ -17,10 +17,10 @@ const Content = () => {
         css={{
           backgroundColor: "#F1F3F5",
           height: "92vh",
-          width: "100vw",
+          minWidth: "100vw",
         }}
       >
-        <Container css={{ width: "60vh", textAlign: "center", padding: 10 }}>
+        <Container css={{ maxWidth: "60vh", textAlign: "center", padding: 10 }}>
           <Text h1 weight="light">
             {title}
           </Text>
