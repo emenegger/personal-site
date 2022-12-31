@@ -67,15 +67,16 @@ const images = [
 
 const imageGrid = images.map((img) => {
   return (
-    <Grid xl key={img.id}>
+    <Grid xs={12} md={6} xl={4} key={img.id}>
       <Image
         showSkeleton
-        width={700}
+        width='100%'
         height={500}
         maxDelay={10000}
         src={img.src}
         alt={img.alt}
         key={img.id}
+        autoResize
       />
     </Grid>
   );
