@@ -32,7 +32,7 @@ const MainNavbar = () => {
           <Navbar.Link href="/Photography">Photography</Navbar.Link>
         </Navbar.Content>
         <Navbar.Content>
-          <Button bordered color="gradient">
+          <Button bordered color="gradient" auto>
             Contact
           </Button>
         </Navbar.Content>
