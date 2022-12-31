@@ -61,7 +61,7 @@ const cardContent = [
 
 const cards = cardContent.map((c) => {
   return (
-    <Grid xs={4} justify="center" alignItems="center" display="flex" key={c.id}>
+    <Grid sm justify="center" alignItems="center" display="flex" key={c.id}>
       <ProjectCard
         title={c.title}
         description={c.description}
