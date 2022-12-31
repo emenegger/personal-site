@@ -1,5 +1,13 @@
 import React from "react";
-import { Grid, Container, Text, Row, Button, Link, Spacer } from "@nextui-org/react";
+import {
+  Grid,
+  Container,
+  Text,
+  Row,
+  Button,
+  Link,
+  Spacer,
+} from "@nextui-org/react";
 import ProjectCard from "../components/ProjectCard";
 
 const cardContent = [
@@ -62,50 +70,59 @@ const cards = cardContent.map((c) => {
         summary={c.summary}
         github={c.github}
         link={c.link}
+        key={c.id}
       />
     </Grid>
   );
 });
 
-const cv = cardContent.map((project) => {
-  return (
-    <Container justify="center" display="flex" direction="column">
-      <Spacer/>
-      <Text h2 weight="semibold">
-        {project.title}
-      </Text>
-      <Text h4 weight="light">
-        {project.description}
-      </Text>
-      <Text h5 weight="thin">
-        Tech: {project.tech.map((t) => t + ", ")}
-      </Text>
-      <Row >
-        <Link href={project.github}>
-          <Button flat size="xs">
-            GitHub
-          </Button>
-        </Link>
-        <Link href={project.link}>
-          <Button flat color="secondary" size="xs" autoFocus>
-            View
-          </Button>
-        </Link>
-      </Row>
-    </Container>
-  );
-});
+// CV Style
+// const cv = cardContent.map((project) => {
+//   return (
+//     <Container justify="center" display="flex" direction="column">
+//       <Spacer/>
+//       <Text h2 weight="semibold">
+//         {project.title}
+//       </Text>
+//       <Text h4 weight="light">
+//         {project.description}
+//       </Text>
+//       <Text h5 weight="thin">
+//         Tech: {project.tech.map((t) => t + ", ")}
+//       </Text>
+//       <Row >
+//         <Link href={project.github}>
+//           <Button flat size="xs">
+//             GitHub
+//           </Button>
+//         </Link>
+//         <Link href={project.link}>
+//           <Button flat color="secondary" size="xs" autoFocus>
+//             View
+//           </Button>
+//         </Link>
+//       </Row>
+//     </Container>
+//   );
+// });
 
 const Web = () => {
   return (
     <>
-    <Row justify="center">
-     <Text h1 weight='bold'>Web</Text>
-    </Row>
+      <Row justify="center">
+        <Text h1 weight="bold">
+          Web
+        </Text>
+      </Row>
       {/* {cv} */}
-   <Grid.Container gap={1} justify="center" alignItems="center" display="flex">
-    {cards}
-    </Grid.Container>
+      <Grid.Container
+        gap={1}
+        justify="center"
+        alignItems="center"
+        display="flex"
+      >
+        {cards}
+      </Grid.Container>
     </>
   );
 };
