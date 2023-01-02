@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 import { Grid, Container, Image, Row, Text } from "@nextui-org/react";
 // import Image from 'next/image';
 
@@ -85,6 +86,12 @@ const imageGrid = images.map((img) => {
 const Photography = () => {
   return (
     <>
+      <Head>
+        <title>Evan Emenegger - Photos</title>
+        <meta name="description" content="Evan Emenegger Portfolio" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Row justify="center">
         <Text h1 weight="bold">
           Photography

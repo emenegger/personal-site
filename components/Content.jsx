@@ -17,7 +17,7 @@ const Content = () => {
         alignItems="center"
         css={{
           backgroundColor: "#F1F3F5",
-          height: "92vh",
+          height: "94vh",
           minWidth: "100vw",
         }}
       >

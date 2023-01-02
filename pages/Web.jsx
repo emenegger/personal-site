@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 import {
   Grid,
   Container,
@@ -109,6 +110,12 @@ const cards = cardContent.map((c) => {
 const Web = () => {
   return (
     <>
+      <Head>
+        <title>Evan Emenegger - Web</title>
+        <meta name="description" content="Evan Emenegger Portfolio" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Row justify="center">
         <Text h1 weight="bold">
           Web
