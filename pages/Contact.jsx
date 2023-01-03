@@ -3,7 +3,7 @@ import Head from "next/head";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import EmailIcon from "@mui/icons-material/Email";
-import GitHubIcon from '@mui/icons-material/GitHub';
+import GitHubIcon from "@mui/icons-material/GitHub";
 import {
   Container,
   Row,
@@ -16,38 +16,38 @@ import {
 
 const contactInfo = [
   {
-    icon: <EmailIcon/>,
+    icon: <EmailIcon />,
     link: "mailto:evanemenegger@gmail.com",
-    handle: "evanemenegger@gmail.com"
+    handle: "evanemenegger@gmail.com",
   },
   {
-    icon: <GitHubIcon/>,
+    icon: <GitHubIcon />,
     link: "https://github.com/emenegger",
-    handle: "@emenegger"
+    handle: "@emenegger",
   },
   {
-    icon: <TwitterIcon/>,
+    icon: <TwitterIcon />,
     link: "https://twitter.com/EvanEmenegger",
-    handle: "@evanemenegger"
+    handle: "@evanemenegger",
   },
   {
-    icon: <InstagramIcon/>,
+    icon: <InstagramIcon />,
     link: "https://www.instagram.com/eje_photos/?hl=en",
-    handle: "@eje_photos"
+    handle: "@eje_photos",
   },
-]
+];
 
-const contactRows = contactInfo.map((ele)=> {
+const contactRows = contactInfo.map((ele) => {
   return (
-  <Row>
-    {ele.icon}
-    <Link href={ele.link}>
-      <Text h4 weight="thin" color="primary" css={{ paddingLeft: "5px" }}>
-        {ele.handle}
-      </Text>
-    </Link>
-  </Row>
-  )
+    <Row key={ele.handle}>
+      {ele.icon}
+      <Link href={ele.link}>
+        <Text h4 weight="thin" color="primary" css={{ paddingLeft: "5px" }}>
+          {ele.handle}
+        </Text>
+      </Link>
+    </Row>
+  );
 });
 
 const Contact = () => {
