@@ -4,6 +4,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import EmailIcon from "@mui/icons-material/Email";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import InsertInvitationIcon from '@mui/icons-material/InsertInvitation';
 import {
   Container,
   Row,
@@ -16,36 +17,42 @@ import {
 
 const contactInfo = [
   {
-    icon: <EmailIcon />,
+    icon: <EmailIcon sx={{marginTop: '4px'}}/>,
     link: "mailto:evanemenegger@gmail.com",
     handle: "evanemenegger@gmail.com",
   },
   {
-    icon: <GitHubIcon />,
+    icon: <GitHubIcon sx={{marginTop: '4px'}}/>,
     link: "https://github.com/emenegger",
     handle: "@emenegger",
   },
   {
-    icon: <TwitterIcon />,
+    icon: <TwitterIcon sx={{marginTop: '4px'}}/>,
     link: "https://twitter.com/EvanEmenegger",
     handle: "@evanemenegger",
   },
   {
-    icon: <InstagramIcon />,
+    icon: <InstagramIcon sx={{marginTop: '4px'}}/>,
     link: "https://www.instagram.com/eje_photos/?hl=en",
     handle: "@eje_photos",
   },
+  {
+    icon: <InsertInvitationIcon sx={{marginTop: '4px'}}/>,
+    link: "https://calendly.com/evanemenegger/chat",
+    handle: "schedule time with me",
+  },
+  
 ];
 
 const contactRows = contactInfo.map((ele) => {
   return (
     <Row key={ele.handle}>
-      {ele.icon}
       <Link href={ele.link}>
-        <Text h4 weight="thin" color="primary" css={{ paddingLeft: "5px" }}>
+      {ele.icon}
+      </Link>
+        <Text h4 weight="thin"  css={{ paddingLeft: "5px" }}>
           {ele.handle}
         </Text>
-      </Link>
     </Row>
   );
 });
@@ -65,7 +72,7 @@ const Contact = () => {
         </Text>
       </Row>
       <Grid.Container justify="center">
-        <Grid xs={8} xl={4} wrap>
+        <Grid xs={8} xl={4}>
           <Image
             showSkeleton
             width="100%"
@@ -81,6 +88,8 @@ const Contact = () => {
           <Container>
             <Text h2>Evan Emenegger</Text>
             {contactRows}
+
+
           </Container>
         </Grid>
       </Grid.Container>
