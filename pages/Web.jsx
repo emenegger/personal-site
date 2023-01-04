@@ -136,42 +136,43 @@ const alternateCards = cardContent.map((ele) => (
 ));
 
 // CV Style
-const cv = cardContent.map((project) => {
-  return (
-    <Container
-      xs
-      justify="center"
-      display="flex"
-      direction="column"
-      width="50%"
-    >
-      <Spacer />
-      <Text h2 weight="semibold">
-        {project.title}
-      </Text>
-      <Text h4 weight="light">
-        {project.description}
-      </Text>
-      <Text h5 weight="thin">
-        Tech: {project.tech.map((t) => t + ", ")}
-      </Text>
-      <Row>
-        <Link href={project.github}>
-          <Button flat size="xs">
-            GitHub
-          </Button>
-        </Link>
-        {project.link && (
-          <Link href={project.link}>
-            <Button flat color="secondary" size="xs" autoFocus>
-              View
-            </Button>
-          </Link>
-        )}
-      </Row>
-    </Container>
-  );
-});
+// const cv = cardContent.map((project) => {
+//   return (
+//     <Container
+//       xs
+//       justify="center"
+//       display="flex"
+//       direction="column"
+//       width="50%"
+//       key={project.id}
+//     >
+//       <Spacer />
+//       <Text h2 weight="semibold">
+//         {project.title}
+//       </Text>
+//       <Text h4 weight="light">
+//         {project.description}
+//       </Text>
+//       <Text h5 weight="thin">
+//         Tech: {project.tech.map((t) => t + ", ")}
+//       </Text>
+//       <Row>
+//         <Link href={project.github}>
+//           <Button flat size="xs">
+//             GitHub
+//           </Button>
+//         </Link>
+//         {project.link && (
+//           <Link href={project.link}>
+//             <Button flat color="secondary" size="xs" autoFocus>
+//               View
+//             </Button>
+//           </Link>
+//         )}
+//       </Row>
+//     </Container>
+//   );
+// });
 
 const Web = () => {
   return (
