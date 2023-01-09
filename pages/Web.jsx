@@ -12,11 +12,11 @@ import {
 import ProjectCard from "../components/ProjectCard";
 import AltCard from "../components/AltCard";
 import SportsBasketballIcon from "@mui/icons-material/SportsBasketball";
-import DirectionsBoatIcon from '@mui/icons-material/DirectionsBoat';
-import ApiIcon from '@mui/icons-material/Api';
-import RestaurantIcon from '@mui/icons-material/Restaurant';
-import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
-import ColorLensIcon from '@mui/icons-material/ColorLens';
+import DirectionsBoatIcon from "@mui/icons-material/DirectionsBoat";
+import ApiIcon from "@mui/icons-material/Api";
+import RestaurantIcon from "@mui/icons-material/Restaurant";
+import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
+import ColorLensIcon from "@mui/icons-material/ColorLens";
 
 const cardContent = [
   {
@@ -40,7 +40,9 @@ const cardContent = [
     github: "https://github.com/oslabs-beta/KubernOcular",
     link: "https://www.kubernocular.com/",
     id: "1",
-    icon: <DirectionsBoatIcon sx={{ width: "34px", height: "34px" }} key={'1'}/>
+    icon: (
+      <DirectionsBoatIcon sx={{ width: "34px", height: "34px" }} key={"1"} />
+    ),
   },
   {
     title: "NBA PGA API",
@@ -55,7 +57,7 @@ const cardContent = [
     github: "https://github.com/emenegger/NBA-PGA-API-V2",
     link: "https://nba-pga-api.vercel.app/",
     id: "2",
-    icon: <ApiIcon sx={{ width: "34px", height: "34px" }} key={'2'}/>
+    icon: <ApiIcon sx={{ width: "34px", height: "34px" }} key={"2"} />,
   },
   {
     title: "Pickup Comps",
@@ -68,49 +70,48 @@ const cardContent = [
     github: "https://github.com/emenegger/pickup-comps-nextjs",
     link: "",
     id: "3",
-    icon: <SportsBasketballIcon sx={{ width: "34px", height: "34px" }} key={'3'}/>
+    icon: (
+      <SportsBasketballIcon sx={{ width: "34px", height: "34px" }} key={"3"} />
+    ),
   },
   {
     title: "Loci Spots",
     summary: "Local Restaurant Reviews",
-    description:
-      "App for locals only restaurant reviews",
-    tech: ["React", "Node.js","Express", "SQL", "Sass"],
+    description: "App for locals only restaurant reviews",
+    tech: ["React", "Node.js", "Express", "SQL", "Sass"],
     image:
       // "https://images.unsplash.com/photo-1527102612281-7fff0660b9bd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1776&q=80",
       "https://images.unsplash.com/photo-1568187779709-06768ff598ff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
     github: "https://github.com/Yeti-Crab-Loci-Spots/Loci-Spots",
     link: "",
     id: "4",
-    icon: <RestaurantIcon sx={{ width: "34px", height: "34px" }} key={'4'}/>
+    icon: <RestaurantIcon sx={{ width: "34px", height: "34px" }} key={"4"} />,
   },
   {
     title: "Beat Books",
     summary: "Music Recommendations",
-    description:
-      "App recommending music for your current book",
-    tech: ["React", "Node.js","Express","Sass"],
+    description: "App recommending music for your current book",
+    tech: ["React", "Node.js", "Express","OAuth" ,"Sass", "NoSQL"],
     image:
       "https://images.unsplash.com/photo-1526395050546-dc5b0fe8df5f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
     github: "https://github.com/Yeti-Crab-Loci-Spots/Loci-Spots",
     link: "",
     id: "5",
-    icon: <LibraryBooksIcon sx={{ width: "34px", height: "34px" }} key={'5'}/>
+    icon: <LibraryBooksIcon sx={{ width: "34px", height: "34px" }} key={"5"} />,
   },
   {
     title: "LeCollectif",
     summary: "Art Gallery",
     description:
       "Online marketplace for photographers, artists, and collectors",
-    tech: ["React", "Node.js", "Express", "SQL","Sass"],
+    tech: ["React", "Node.js", "Express", "SQL", "Sass"],
     image:
       "https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80",
-    github: "https://github.com/Yeti-Crab-Loci-Spots/Loci-Spots",
+    github: "https://github.com/HUS-Collective/Le-Collectif",
     link: "",
     id: "6",
-    icon: <ColorLensIcon sx={{ width: "34px", height: "34px" }} key={'6'}/>
+    icon: <ColorLensIcon sx={{ width: "34px", height: "34px" }} key={"6"} />,
   },
-
 ];
 
 const cards = cardContent.map((c) => {
@@ -130,13 +131,22 @@ const cards = cardContent.map((c) => {
   );
 });
 
-const alternateCards = cardContent.map(ele => <AltCard content={ele} key={ele.id}/>)
+const alternateCards = cardContent.map((ele) => (
+  <AltCard content={ele} key={ele.id} />
+));
 
 // CV Style
 // const cv = cardContent.map((project) => {
 //   return (
-//     <Container justify="center" display="flex" direction="column">
-//       <Spacer/>
+//     <Container
+//       xs
+//       justify="center"
+//       display="flex"
+//       direction="column"
+//       width="50%"
+//       key={project.id}
+//     >
+//       <Spacer />
 //       <Text h2 weight="semibold">
 //         {project.title}
 //       </Text>
@@ -146,17 +156,19 @@ const alternateCards = cardContent.map(ele => <AltCard content={ele} key={ele.id
 //       <Text h5 weight="thin">
 //         Tech: {project.tech.map((t) => t + ", ")}
 //       </Text>
-//       <Row >
+//       <Row>
 //         <Link href={project.github}>
 //           <Button flat size="xs">
 //             GitHub
 //           </Button>
 //         </Link>
-//         <Link href={project.link}>
-//           <Button flat color="secondary" size="xs" autoFocus>
-//             View
-//           </Button>
-//         </Link>
+//         {project.link && (
+//           <Link href={project.link}>
+//             <Button flat color="secondary" size="xs" autoFocus>
+//               View
+//             </Button>
+//           </Link>
+//         )}
 //       </Row>
 //     </Container>
 //   );
@@ -176,14 +188,23 @@ const Web = () => {
           Web
         </Text>
       </Row>
-      {/* {cv} */}
+      <Container
+        md
+        xl={"50%"}
+        display="flex"
+        justify="center"
+        alignContent="center"
+        fluid={false}
+      >
+        {/* {cv} */}
+      </Container>
       <Grid.Container
         gap={2}
         justify="center"
         alignItems="center"
         display="flex"
-        wrap='wrap'
-        css={{gridTemplateColumns: 'repeat(3, 1fr)'}}
+        wrap="wrap"
+        css={{ gridTemplateColumns: "repeat(3, 1fr)" }}
       >
         {cards}
         {/* {alternateCards} */}
