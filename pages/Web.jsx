@@ -175,6 +175,7 @@ const alternateCards = cardContent.map((ele) => (
 // });
 
 const Web = () => {
+  // console.log('props in web:', props)
   return (
     <>
       <Head>
@@ -212,5 +213,11 @@ const Web = () => {
     </>
   );
 };
+
+// export async function getStaticProps() {
+//   return {
+//     props: {cardContent},
+//   }
+// }
 
 export default Web;
