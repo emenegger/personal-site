@@ -6,7 +6,6 @@ import ProjectSquare from '../components/ProjectSquare';
 
 const Projects = (props) => {
   const {cardContent} = props
-  console.log(cardContent);
   
   const projects = cardContent.map((ele) => {
     return (

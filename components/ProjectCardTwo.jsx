@@ -1,5 +1,6 @@
 import React from "react";
-import { Card, Row, Button, Text, Table } from "@nextui-org/react";
+import { Card, Row, Button, Text, Collapse, Link } from "@nextui-org/react";
+import Accordion from "../components/Accordion";
 
 const ProjectCardTwo = (props) => {
   const { title, description, tech, image, github, link } = props;
@@ -14,40 +15,62 @@ const ProjectCardTwo = (props) => {
       }}
     >
       <Card.Header>
-        <Text b css={{ color: "whitesmoke" }}>
+        <Text h1 css={{ color: "whitesmoke" }}>
           {title}
         </Text>
       </Card.Header>
       <Card.Divider />
       <Card.Body css={{ py: "$10" }}>
-        <Text css={{ color: "whitesmoke" }}>{description}</Text>
-
-        <Table
-          aria-label="Example table with dynamic content"
-          css={{
-            height: "auto",
-            minWidth: "100%",
-          }}
+        <Text h4 css={{ color: "whitesmoke" }}>
+          {description}
+        </Text>
+        <Collapse.Group
+          shadow
+          css={{ backgroundColor: "black", color: "whitesmoke" }}
         >
-          <Table.Header >
-              <Table.Column key={title}>Tech</Table.Column>
-          </Table.Header>
-          <Table.Body>
-            {tech.map((item, i) => (
-              <Table.Row key={i}>
-                <Table.Cell css={{color: 'whitesmoke'}}>{item}</Table.Cell>
-              </Table.Row>
-            ))}
-          </Table.Body>
-        </Table>
+          <Accordion tech={tech} />
+        </Collapse.Group>
       </Card.Body>
       <Card.Divider />
       <Card.Footer>
-        <Row justify="flex-end">
-          <Button size="sm" light>
-            github
-          </Button>
-          <Button size="sm">visit</Button>
+        <Row justify="space-between">
+          <Link href={github}>
+            <Button
+              flat
+              // auto
+              rounded
+              css={{ color: "#94f9f0", bg: "#94f9f026" }}
+            >
+              <Text
+                css={{ color: "inherit" }}
+                size={12}
+                weight="bold"
+                transform="uppercase"
+              >
+                GitHub
+              </Text>
+            </Button>
+          </Link>
+          {link && (
+            <Link href={link}>
+              <Button
+                animated
+                flat
+                // auto
+                rounded
+                css={{ color: "#94f9f0", bg: "#94f9f026" }}
+              >
+                <Text
+                  css={{ color: "inherit" }}
+                  size={12}
+                  weight="bold"
+                  transform="uppercase"
+                >
+                  View
+                </Text>
+              </Button>
+            </Link>
+          )}
         </Row>
       </Card.Footer>
     </Card>
