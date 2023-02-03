@@ -1,4 +1,4 @@
-// import '../styles/globals.css'
+import '../styles/globals.css'
 import MainNavbar from "../components/MainNavbar";
 import { NextUIProvider } from "@nextui-org/react";
 

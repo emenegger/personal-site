@@ -20,7 +20,7 @@ const MainNavbar = () => {
           </Link>
         </Navbar.Brand>
         <Navbar.Content>
-          <Link href="/Web" scroll style={{color: 'black'}}>
+          <Link href="/Projects" scroll style={{color: 'black'}}>
             Web
           </Link>
           <Link href="/Photography" scroll style={{color: 'black'}}>Photography</Link>
