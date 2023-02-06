@@ -1,6 +1,5 @@
 import React from "react";
 import { Card, Row, Button, Text, Collapse, Link } from "@nextui-org/react";
-import Accordion from "../components/Accordion";
 import TechList from '../components/TechList'
 
 const ProjectCardTwo = (props) => {
