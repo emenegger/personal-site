@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, Row, Button, Text, Collapse, Link } from "@nextui-org/react";
 import Accordion from "../components/Accordion";
+import TechList from '../components/TechList'
 
 const ProjectCardTwo = (props) => {
   const { title, description, tech, image, github, link } = props;
@@ -15,7 +16,7 @@ const ProjectCardTwo = (props) => {
       }}
     >
       <Card.Header>
-        <Text h1 css={{ color: "whitesmoke" }}>
+        <Text h1 css={{ textGradient: "45deg, $green600 -20%, $cyan600 100%",}}>
           {title}
         </Text>
       </Card.Header>
@@ -24,29 +25,22 @@ const ProjectCardTwo = (props) => {
         <Text h4 css={{ color: "whitesmoke" }}>
           {description}
         </Text>
-        <Collapse.Group
-          shadow
-          css={{ backgroundColor: "black", color: "whitesmoke" }}
-        >
-          <Accordion tech={tech} />
-        </Collapse.Group>
-      </Card.Body>
+        <TechList tech={tech} />
       <Card.Divider />
       <Card.Footer>
-        <Row justify="space-between">
+        <Row justify="space-around">
           <Link href={github}>
             <Button
               flat
-              // auto
               rounded
               css={{ color: "#94f9f0", bg: "#94f9f026" }}
-            >
+              >
               <Text
                 css={{ color: "inherit" }}
                 size={12}
                 weight="bold"
                 transform="uppercase"
-              >
+                >
                 GitHub
               </Text>
             </Button>
@@ -56,16 +50,15 @@ const ProjectCardTwo = (props) => {
               <Button
                 animated
                 flat
-                // auto
                 rounded
                 css={{ color: "#94f9f0", bg: "#94f9f026" }}
-              >
+                >
                 <Text
                   css={{ color: "inherit" }}
                   size={12}
                   weight="bold"
                   transform="uppercase"
-                >
+                  >
                   View
                 </Text>
               </Button>
@@ -73,6 +66,7 @@ const ProjectCardTwo = (props) => {
           )}
         </Row>
       </Card.Footer>
+          </Card.Body>
     </Card>
   );
 };

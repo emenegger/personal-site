@@ -13,7 +13,6 @@ export const cardContent = [
       "Cytoscape.js",
       "Chart.js",
       "Jest",
-      "Sass",
     ],
     image:
       // "https://images.unsplash.com/photo-1570783700979-ab82b9250371?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1674&q=80",
@@ -72,6 +71,8 @@ export const cardContent = [
     image:
       // "https://images.unsplash.com/photo-1526395050546-dc5b0fe8df5f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
       "https://images.unsplash.com/photo-1535905748047-14b2415c77d5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1700&q=80",
+      // "https://images.unsplash.com/photo-1613324765334-7f4a413b8bba?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
+      // "https://images.unsplash.com/photo-1580192270066-bed2e3055024?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
     github: "https://github.com/Yeti-Crab-Loci-Spots/Loci-Spots",
     link: "",
     id: "5",

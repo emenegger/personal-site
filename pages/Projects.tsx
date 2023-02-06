@@ -18,14 +18,14 @@ const Projects = (props) => {
   return (
     <>
       <Head>
-        <title>Evan Emenegger - Photos</title>
+        <title>Evan Emenegger - Web</title>
         <meta name="description" content="Evan Emenegger Portfolio" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Row justify="center">
         <Text h1 weight="bold">
-          Web Projects
+          Web
         </Text>
       </Row>
       <Grid.Container gap={1} justify="center">
