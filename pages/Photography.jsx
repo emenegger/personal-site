@@ -1,20 +1,21 @@
 import React from "react";
 import Head from "next/head";
-import { Grid, Row, Text, Image } from "@nextui-org/react";
-// import Image from 'next/image'
-import {images} from '../public/images'
+import { Grid, Row, Text } from "@nextui-org/react";
+import Image from "next/image";
+import { images } from "../public/images";
+// import firstPhoto from "../images/DSC_9264.jpg";
 
+const Photography = ({ images }) => {
+  console.log("images", images);
 
-const Photography = (props) => {
-
-  const imageGrid = props.images.map((img) => {
+  const imageGrid = images.map((img) => {
     return (
       <Grid xs={12} md={6} xl={4} key={img.id}>
         <Image
           showSkeleton
-          // width='100%'
-          fill={true}
-          // height={500}
+          width={890}
+          // fill={true}
+          height={500}
           maxDelay={10000}
           src={img.src}
           alt={img.alt}
@@ -46,9 +47,8 @@ const Photography = (props) => {
 
 export async function getStaticProps() {
   return {
-    props: {images},
-  }
+    props: { images },
+  };
 }
-
 
 export default Photography;
