@@ -10,6 +10,10 @@ import lightStore from "/Users/evanemenegger/Desktop/Projects/personal-website/p
 import chinatownCDMX from "/Users/evanemenegger/Desktop/Projects/personal-website/public/DSC_9109.jpg"
 import plantOnChurch from "/Users/evanemenegger/Desktop/Projects/personal-website/public/DSC_9156.jpg"
 import library from "/Users/evanemenegger/Desktop/Projects/personal-website/public/DSC_9137.jpg"
+import onpTree from "/Users/evanemenegger/Desktop/Projects/personal-website/public/DSC_8330.jpg"
+import onpLake1 from "/Users/evanemenegger/Desktop/Projects/personal-website/public/DSC_8380.jpg"
+import onpLake2 from "/Users/evanemenegger/Desktop/Projects/personal-website/public/DSC_8381.jpg"
+import dayOfTheDead from "/Users/evanemenegger/Desktop/Projects/personal-website/public/DSC_8981.jpg"
 
 export const images = [
   {
@@ -72,26 +76,26 @@ export const images = [
     alt: "library",
     id: 12,
   },
-  // {
-  //   src: "https://imagizer.imageshack.com/img923/1733/bdiggm.jpg",
-  //   alt: "tree in onp",
-  //   id: 13,
-  // },
-  // {
-  //   src: "https://imagizer.imageshack.com/img922/2378/RD6aaJ.jpg",
-  //   alt: "lake 1 in onp",
-  //   id: 14,
-  // },
-  // {
-  //   src: "https://imagizer.imageshack.com/img923/5476/ZUZwOf.jpg",
-  //   alt: "lake with house onp",
-  //   id: 15,
-  // },
-  // {
-  //   src: "https://imagizer.imageshack.com/img922/1858/mU5sEK.jpg",
-  //   alt: "day of the dead",
-  //   id: 16,
-  // },
+  {
+    src: onpTree,
+    alt: "tree in onp",
+    id: 13,
+  },
+  {
+    src: onpLake1,
+    alt: "lake 1 in onp",
+    id: 14,
+  },
+  {
+    src: onpLake2,
+    alt: "lake with house onp",
+    id: 15,
+  },
+  {
+    src: dayOfTheDead,
+    alt: "day of the dead",
+    id: 16,
+  },
   // {
   //   src: "https://imagizer.imageshack.com/img922/9117/utK4zc.jpg",
   //   alt: "tombs",

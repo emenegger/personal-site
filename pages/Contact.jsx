@@ -14,6 +14,7 @@ import {
   Grid,
   Link,
 } from "@nextui-org/react";
+import evanInBeanie from "/Users/evanemenegger/Desktop/Projects/personal-website/public/DSC_7882-2.jpg"
 
 const contactInfo = [
   {
@@ -76,7 +77,7 @@ const Contact = () => {
             height={600}
             maxDelay={10000}
             objectFit="cover"
-            src="https://imagizer.imageshack.com/img922/6066/wqh5gb.jpg"
+            src={evanInBeanie.src}
             alt="Evan Emenegger"
             autoResize
           />
