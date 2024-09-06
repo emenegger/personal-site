@@ -1,12 +1,32 @@
 import React from "react";
-import { Text, Container, Button } from "@nextui-org/react";
+import { Image } from "@nextui-org/react";
+import styles from "./Content.module.scss";
+import CTAContainer from './CTAContainer'
 
 const synopsis =
-  "Hi I'm Evan. I'm a Software Engineer experienced in TypeScript and React passionate about front-end development, mentorship, problem-solving, and photography.";
+  "I'm a Software Engineer experienced in TypeScript and React passionate about front-end development, mentorship, problem-solving, and photography.";
 const title = "Software Engineer & Photographer";
+
+const image = "https://drive.google.com/uc?export=view&id=anzbXr56ZSFkpaM58";
 
 const Content = () => {
   return (
+    <div className={styles.homePageContainer}>
+      <div className={styles.backgroundImage}>
+        <Image src="/images/DSC_9716.jpg" alt="tdp" />
+      </div>
+      <div className={styles.backgroundOverlay} />
+      <div className={styles.foregroundImage}>
+        <Image src="/images/tdp_no_background.png" alt="tdp" />
+      </div>
+        <CTAContainer />
+    </div>
+  );
+};
+
+export default Content;
+
+/*
     <>
       <Container
         display="flex"
@@ -37,7 +57,4 @@ const Content = () => {
         </Container>
       </Container>
     </>
-  );
-};
-
-export default Content;
+*/

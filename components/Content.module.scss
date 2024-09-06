@@ -1,0 +1,51 @@
+.container {
+  display: flex;
+  justify-content: center;
+  // z-index: 1;
+  // top: -50;
+  // left: 0;
+  // position: absolute;
+}
+
+
+.homePageContainer {
+  position: relative; /* Ensure the container can position its children */
+}
+
+.foregroundImage {
+  position: relative;
+  height: 100vh;
+  min-width: 100vw;
+  width: 100%;
+  z-index: 4; 
+}
+
+.backgroundImage {
+  position: absolute;
+  height: 100vh;
+  min-width: 100vw;
+  width: 100%;
+  z-index: 1; 
+}
+
+.backgroundOverlay {
+  position: absolute;
+  height: 100vh;
+  min-width: 100vw;
+  width: 100%;
+  z-index: 2; 
+}
+
+.ctaContainer {
+  position: absolute;
+  z-index: 3; 
+  top: 8vw;
+  left: 9vw;
+}
+
+.item {
+  padding-right: 10px;
+  h1 {
+    font-size: 12vw;
+  }
+}

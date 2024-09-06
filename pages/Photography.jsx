@@ -2,8 +2,9 @@ import React from "react";
 import Head from "next/head";
 import { Grid, Row, Text, Image } from "@nextui-org/react";
 // import Image from "next/image";
-import { images } from "../public/images";
+import { images, images2 } from "../public/images";
 // import firstPhoto from "../images/DSC_9264.jpg";
+import ParallaxContainer from '../components/ParallaxContainer';
 
 const Photography = ({ images }) => {
 
@@ -36,9 +37,10 @@ const Photography = ({ images }) => {
           Photography
         </Text>
       </Row>
-      <Grid.Container gap={1} justify="center">
+      {/* <Grid.Container gap={1} justify="center">
         {imageGrid}
-      </Grid.Container>
+      </Grid.Container> */}
+      <ParallaxContainer images={images}/>
     </>
   );
 };

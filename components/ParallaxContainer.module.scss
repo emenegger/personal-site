@@ -1,0 +1,80 @@
+
+
+.container {
+  scroll-snap-type: y mandatory;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+}
+
+.section {
+  height: 700px;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  position: relative;
+  scroll-snap-align: center;
+  perspective: 500px;
+}
+
+.image {
+  // right: 0;
+  // bottom: 0;
+  padding: 1rem;
+  // padding-bottom: 5rem;
+  height: auto;
+  aspect-ratio: 1 / 1; 
+  object-fit: cover; 
+  display: block; 
+}
+
+.progress {
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 5px;
+  // background: var(--accent);
+  bottom: 100px;
+}
+
+.label {
+  position: relative;
+  top: 420px;
+  left: 800px;
+  width: 500px; 
+  height: 600px; 
+  // border: 1px solid black;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  background-color: #fffafa;
+  background-image: url("https://www.transparenttextures.com/patterns/bedge-grunge.png");
+}
+
+.card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 500px; 
+  height: 600px; 
+  // border: 1px solid black;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  background-color: #fffafa;
+  background-image: url("https://www.transparenttextures.com/patterns/bedge-grunge.png");
+  // background-image: url("https://www.transparenttextures.com/patterns/clean-gray-paper.png");
+
+  p {
+    padding-left: 1rem;
+  }
+}
+@media (max-width: 480px) {
+  .card {
+    width: 350px;
+    height: 420px;
+  }
+  .label {
+    size: 20px;
+  }
+}
+
+

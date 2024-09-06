@@ -1,7 +1,5 @@
 import Head from "next/head";
-import Image from "next/image";
 import { Inter } from "@next/font/google";
-import { Button, Container, Navbar, Text } from "@nextui-org/react";
 import { Layout } from "../components/Layout";
 import Content from "../components/Content";
 import MainNavbar from "../components/MainNavbar";
