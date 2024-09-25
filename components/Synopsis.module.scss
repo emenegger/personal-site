@@ -1,0 +1,83 @@
+.animateTextArrayText {
+  color: whitesmoke;
+  margin-bottom: 0px;
+  text-align: center;
+  h1 {
+    font-size: large;
+    margin-bottom: 0.25rem;
+  }
+}
+
+.synopsisContainer {
+  position: absolute;
+  bottom: 7%;
+  left: 20vw;
+  width: 60vw;
+  padding: 1rem;
+  z-index: 5;
+  h3 {
+    color: white;
+  }
+}
+
+/* Mobile landscape breakpoint. */
+@media only screen and (min-width: 480px) {
+  .ctaContainer {
+    top: 4vw;
+    left: 9vw;
+    display: flex;
+  }
+  .animateTextArrayText {
+    h1 {
+      font-size: xx-large;
+    }
+  }
+}
+
+/* iPad Mini breakpoint. */
+@media only screen and (min-width: 768px) {
+  .ctaContainer {
+    top: 4vw;
+    left: 3vw;
+    display: flex;
+  }
+}
+
+/* iPad Air breakpoint */
+@media only screen and (min-width: 820px) {
+  .animateTextArrayText {
+    padding-right: 10px;
+    font-size: 1rem;
+  }
+  .ctaTextContainer {
+    flex-direction: column;
+  }
+  .synopsisContainer {
+    left: 30vw;
+    width: 40vw;
+    bottom: 10%;
+  }
+}
+
+/* Laptop breakpoint. */
+@media only screen and (min-width: 1024px) {
+  .animateTextArrayText {
+    padding-right: 10px;
+    color: whitesmoke;
+    h1 {
+      font-size: xx-large;
+    }
+  }
+
+  .ctaTextContainer {
+    flex-direction: row;
+  }
+}
+
+/* Desktop breakpoint. */
+@media only screen and (min-width: 1600px) {
+  .ctaContainer {
+    top: 8vw;
+    left: 9vw;
+  }
+}

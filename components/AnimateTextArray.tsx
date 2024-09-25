@@ -1,27 +1,28 @@
 import React from "react";
 import { motion, Variants } from "framer-motion";
-import styles from "./Content.module.scss";
 
 type AnimationContainerProps = {
   text: Array<string>;
   ulVariants: Variants;
-  liVariants: Variants;  
+  liVariants: Variants;
+  styles: any;  
 }
 
-const AnimationContainer = ({
+const AnimateTextArray = ({
   text,
   ulVariants,
   liVariants,
+  styles,
 }: AnimationContainerProps) => {
   return (
     <motion.ul
-      className={styles.ctaTextContainer}
+      className={styles.animateTextArrayContainer}
       variants={ulVariants}
       initial="hidden"
       animate="visible"
     >
       {text.map((word, index) => (
-        <motion.li key={index} variants={liVariants} className={styles.ctaText}>
+        <motion.li key={index} variants={liVariants} className={styles.animateTextArrayText}>
           <h1>{word}</h1>
         </motion.li>
       ))}
@@ -29,4 +30,4 @@ const AnimationContainer = ({
   );
 };
 
-export default AnimationContainer;
+export default AnimateTextArray;
