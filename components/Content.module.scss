@@ -1,31 +1,37 @@
-.container {
+.ctaTextContainer {
   display: flex;
   justify-content: center;
-  // z-index: 1;
-  // top: -50;
-  // left: 0;
-  // position: absolute;
+  flex-direction: column;
 }
 
 
 .homePageContainer {
-  position: relative; /* Ensure the container can position its children */
+  position: relative; 
 }
 
 .foregroundImage {
   position: relative;
-  height: 100vh;
+  min-height: 100vh;
   min-width: 100vw;
   width: 100%;
   z-index: 4; 
+  background-image: url("/images/tdp_no_background.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .backgroundImage {
   position: absolute;
   height: 100vh;
-  min-width: 100vw;
+  min-height: 100vh;
   width: 100%;
   z-index: 1; 
+  overflow: hidden;
+  background-image: url("/images/DSC_9716.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .backgroundOverlay {
@@ -34,18 +40,84 @@
   min-width: 100vw;
   width: 100%;
   z-index: 2; 
+  background-color: rgba(0, 0, 0, 0.15); /* make this dynamic on scroll */
 }
 
 .ctaContainer {
   position: absolute;
   z-index: 3; 
   top: 8vw;
-  left: 9vw;
+  left: 0vw;
+  h1 {
+    font-size: 11vh;
+    line-height: 8vh;
+  }
 }
 
-.item {
+.ctaText {
   padding-right: 10px;
-  h1 {
-    font-size: 12vw;
+}
+
+/* Mobile landscape breakpoint. */
+@media only screen and (min-width: 480px) {
+  .ctaContainer {
+    top: 4vw;
+    left: 9vw;
+    display: flex;
+    h1 {
+      font-size: 7rem;
+      line-height: 6rem;
+    }
+  }
+}
+
+/* iPad Mini breakpoint. */
+@media only screen and (min-width: 768px) {
+  .ctaContainer {
+    top: 4vw;
+    left: 3vw;
+    display: flex;
+    h1 {
+      font-size: 9rem;
+      line-height: 7rem;
+    }
+  }
+}
+
+@media only screen and (min-width: 820px) {
+  .ctaContainer {
+    top: 4vw;
+    left: 3vw;
+    display: flex;
+    h1 {
+      font-size: 12rem;
+      line-height: 8rem;
+    }
+  }
+  .ctaTextContainer {
+    flex-direction: column;
+  }
+}
+
+/* Laptop breakpoint. */
+@media only screen and (min-width: 1024px) {
+  .ctaContainer {
+    top: 12vw;
+    left: 1vw;
+    .ctaText {
+      padding-right: 10px;
+      font-size: 13rem;
+    }
+  }
+  .ctaTextContainer {
+    flex-direction: row;
+  }
+}
+
+/* Desktop breakpoint. */
+@media only screen and (min-width: 1600px) {
+  .ctaContainer {
+    top: 8vw;
+    left: 9vw;
   }
 }

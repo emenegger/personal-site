@@ -1,53 +1,32 @@
-import React from 'react'
-import { motion } from "framer-motion";
-import styles from './Content.module.scss'
-import { Text } from '@nextui-org/react';
+import React from "react";
+import { motion, Variants } from "framer-motion";
+import styles from "./Content.module.scss";
 
-const intro = ["Hi", "I'm", "Evan."];
+type AnimationContainerProps = {
+  text: Array<string>;
+  ulVariants: Variants;
+  liVariants: Variants;  
+}
 
-const container = {
-  hidden: { opacity: 1, scale: 0 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      delayChildren: 0.3,
-      staggerChildren: 0.5
-    }
-  }
-};
-
-const item = {
-  hidden: { y: 20, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1
-  }
-};
-
-const AnimationContainer = ({text}) => {
+const AnimationContainer = ({
+  text,
+  ulVariants,
+  liVariants,
+}: AnimationContainerProps) => {
   return (
     <motion.ul
-      className={styles.container}
-      variants={container}
+      className={styles.ctaTextContainer}
+      variants={ulVariants}
       initial="hidden"
       animate="visible"
     >
-      {intro.map((word, index) => (
-        <motion.li key={index} variants={item} className={styles.item}>
-          {/* <Text 
-            weight="bold"
-            css={{
-              // textGradient: "45deg, $green600 -20%, $cyan600 100%",
-              fontSize: '8rem'
-            }}>
-            {word}
-          </Text> */}
+      {text.map((word, index) => (
+        <motion.li key={index} variants={liVariants} className={styles.ctaText}>
           <h1>{word}</h1>
         </motion.li>
       ))}
     </motion.ul>
-  )
-}
+  );
+};
 
-export default AnimationContainer
+export default AnimationContainer;
