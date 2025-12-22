@@ -1,48 +1,9 @@
 import React from "react";
-import Head from "next/head";
-import { Grid, Row, Text, Image } from "@nextui-org/react";
-// import Image from "next/image";
-import { images, images2 } from "../public/images";
-// import firstPhoto from "../images/DSC_9264.jpg";
-import ParallaxContainer from '../components/ParallaxContainer';
+import { images } from "../public/images";
+import ParallaxContainer from "../components/ParallaxContainer";
 
 const Photography = ({ images }) => {
-
-  const imageGrid = images.map((img) => {
-    return (
-      <Grid xs={12} md={6} xl={4} key={img.id}>
-        <Image
-          showSkeleton
-          // fill={true}
-          height={500}
-          maxDelay={10000}
-          src={img.src.src}
-          alt={img.alt}
-          key={img.id}
-          autoResize
-        />
-      </Grid>
-    );
-  });
-  return (
-    <>
-      <Head>
-        <title>Evan Emenegger - Photos</title>
-        <meta name="description" content="Evan Emenegger Portfolio" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <Row justify="center">
-        <Text h1 weight="bold">
-          Photography
-        </Text>
-      </Row>
-      {/* <Grid.Container gap={1} justify="center">
-        {imageGrid}
-      </Grid.Container> */}
-      <ParallaxContainer images={images}/>
-    </>
-  );
+  return <ParallaxContainer images={images} />;
 };
 
 export async function getStaticProps() {
