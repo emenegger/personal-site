@@ -5,15 +5,6 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import EmailIcon from "@mui/icons-material/Email";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import InsertInvitationIcon from "@mui/icons-material/InsertInvitation";
-// import {
-//   Container,
-//   Row,
-//   Text,
-//   Col,
-//   Image,
-//   Grid,
-//   Link,
-// } from "@nextui-org/react";
 import evanInBeanie from "/Users/evanemenegger/Desktop/Projects/personal-website/public/DSC_7882-2.jpg"
 
 const contactInfo = [
