@@ -5,15 +5,15 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import EmailIcon from "@mui/icons-material/Email";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import InsertInvitationIcon from "@mui/icons-material/InsertInvitation";
-import {
-  Container,
-  Row,
-  Text,
-  Col,
-  Image,
-  Grid,
-  Link,
-} from "@nextui-org/react";
+// import {
+//   Container,
+//   Row,
+//   Text,
+//   Col,
+//   Image,
+//   Grid,
+//   Link,
+// } from "@nextui-org/react";
 import evanInBeanie from "/Users/evanemenegger/Desktop/Projects/personal-website/public/DSC_7882-2.jpg"
 
 const contactInfo = [
@@ -44,16 +44,16 @@ const contactInfo = [
   },
 ];
 
-const contactRows = contactInfo.map((ele) => {
-  return (
-    <Row key={ele.handle}>
-      <Link href={ele.link}>{ele.icon}</Link>
-      <Text h4 weight="thin" css={{ paddingLeft: "5px" }}>
-        {ele.handle}
-      </Text>
-    </Row>
-  );
-});
+// const contactRows = contactInfo.map((ele) => {
+//   return (
+//     <Row key={ele.handle}>
+//       <Link href={ele.link}>{ele.icon}</Link>
+//       <Text h4 weight="thin" css={{ paddingLeft: "5px" }}>
+//         {ele.handle}
+//       </Text>
+//     </Row>
+//   );
+// });
 
 const Contact = () => {
   return (
@@ -64,7 +64,7 @@ const Contact = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Row justify="center">
+      {/* <Row justify="center">
         <Text h1 weight="bold">
           Contact
         </Text>
@@ -88,7 +88,7 @@ const Contact = () => {
             {contactRows}
           </Container>
         </Grid>
-      </Grid.Container>
+      </Grid.Container> */}
     </>
   );
 };

@@ -1,4 +1,3 @@
-// import { Grid, Row, Text, Image } from "@nextui-org/react";
 import Head from "next/head";
 import React from "react";
 import { cardContent } from "../public/cardContent";
