@@ -49,7 +49,7 @@ const ParallaxContainer = ({ images }) => {
       {images.map((image) => (
         <Image image={image} key={image.id}/>
       ))}
-      {/* <motion.div className={styles.progress} style={{ scaleX }} /> */}
+      <motion.div className={styles.progress} style={{ scaleX }} />
     </div>
   );
 };
