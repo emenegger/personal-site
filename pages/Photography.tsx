@@ -1,5 +1,5 @@
 import { images } from "../public/images";
-import { ParallaxContainer } from "../components";
+import { ImageCard, ParallaxContainer } from "../components";
 import Image from "next/image";
 import passports from "../public/images/passports.jpg";
 
@@ -14,7 +14,10 @@ const Photography = ({ images }) => {
           className="object-cover"
         />
       </div>
-      <ParallaxContainer images={images} />
+      <div className="p-10">
+        {/* <ParallaxContainer images={images} /> */}
+        <ImageCard/>
+      </div>
     </div>
   );
 };

@@ -24,10 +24,6 @@ function Image({ image }) {
         <img src={image?.src} alt={image.alt} className={styles.image} />
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea. </p>
       </div>
-      {/* <motion.h2
-        className={styles.label}
-        style={{ y }}
-      >{`${image.alt}`}</motion.h2> */}
       <motion.div ref={ref} className={styles.label} style={{ y }}>
         <img src={image?.src} alt={image.alt} className={styles.image} />
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea. </p>
