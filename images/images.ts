@@ -1,3 +1,51 @@
+import { StaticImageData } from "next/image";
+import { beach, spainPassportStamp, dinosaur, mexicoPassportStamp, malagaPark } from '../public/images'
+
+
+export interface Images {
+  location: string;
+  camera: 'canon eos 650' | 'nikon d750';
+  date: string;
+  src: StaticImageData;
+  stampSrc: StaticImageData;
+  orientation: 'portrait' | 'landscape';
+  alt: string;
+  id: number;
+}
+
+export const images3: Images[] = [
+  {
+    location: 'nerja, spain',
+    camera: 'canon eos 650',
+    orientation: 'landscape',
+    date: '11/12/2025',
+    src: beach,
+    stampSrc: spainPassportStamp,
+    alt: 'nerja beach',
+    id: 1,
+  },
+  {
+    location: 'progresso, mexico',
+    camera: 'canon eos 650',
+    orientation: 'landscape',
+    date: '02/22/2025',
+    src: dinosaur,
+    stampSrc: mexicoPassportStamp,
+    alt: 'progresso dino',
+    id: 2,
+  },
+  {
+    location: 'malaga, spain',
+    camera: 'canon eos 650',
+    orientation: 'landscape',
+    date: '10/30/2025',
+    src: malagaPark,
+    stampSrc: spainPassportStamp,
+    alt: 'malagaPark',
+    id: 3,
+  },
+]
+
 export const images = [
   {
     src: "https://imagizer.imageshack.com/img922/9748/mny1WW.jpg",

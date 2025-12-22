@@ -1,4 +1,4 @@
-import { images } from "../public/images";
+import { images3 } from "../images/images";
 import { ImageCard, ParallaxContainer } from "../components";
 import Image from "next/image";
 import passports from "../public/images/passports.jpg";
@@ -16,7 +16,21 @@ const Photography = ({ images }) => {
       </div>
       <div className="p-10">
         {/* <ParallaxContainer images={images} /> */}
-        <ImageCard/>
+        {images.map(
+          ({ src, stampSrc, orientation, location, camera, date, alt, id }) => (
+            <ImageCard
+              src={src}
+              stampSrc={stampSrc}
+              orientation={orientation}
+              location={location}
+              camera={camera}
+              date={date}
+              alt={alt}
+              key={id}
+              id={id}
+            />
+          )
+        )}
       </div>
     </div>
   );
@@ -24,7 +38,7 @@ const Photography = ({ images }) => {
 
 export async function getStaticProps() {
   return {
-    props: { images },
+    props: { images: images3 },
   };
 }
 
