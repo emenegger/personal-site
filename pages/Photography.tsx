@@ -1,6 +1,6 @@
 import React from "react";
 import { images } from "../public/images";
-import ParallaxContainer from "../components/ParallaxContainer";
+import { ParallaxContainer } from "../components";
 
 const Photography = ({ images }) => {
   return <ParallaxContainer images={images} />;

@@ -1,0 +1,1 @@
+export { default as ParallaxContainer} from '../components/ParallaxContainer'
