@@ -13,18 +13,20 @@
     "@emotion/styled": "^11.10.5",
     "@mui/icons-material": "^5.11.0",
     "@mui/material": "^5.11.3",
-    "@next/font": "13.1.1",
-    "@nextui-org/react": "^1.0.0-beta.11",
+    "@nextui-org/react": "^2.4.8",
     "classnames": "^2.5.1",
     "eslint": "8.30.0",
     "eslint-config-next": "13.1.1",
-    "framer-motion": "^11.5.2",
-    "next": "13.1.1",
+    "framer-motion": "^11.7.0",
+    "next": "^14.2.13",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "sass": "^1.78.0"
   },
   "devDependencies": {
-    "@types/node": "18.11.18"
+    "@types/node": "18.11.18",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.13"
   }
 }
