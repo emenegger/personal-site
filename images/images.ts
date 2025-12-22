@@ -1,5 +1,5 @@
 import { StaticImageData } from "next/image";
-import { beach, spainPassportStamp, dinosaur, mexicoPassportStamp, malagaPark } from '../public/images'
+import { beach, spainPassportStamp, dinosaur, mexicoPassportStamp, malagaPark, eiffelTower, francePassportStamp } from '../public/images'
 
 
 export interface Images {
@@ -43,6 +43,16 @@ export const images3: Images[] = [
     stampSrc: spainPassportStamp,
     alt: 'malagaPark',
     id: 3,
+  },
+  {
+    location: 'paris, france',
+    camera: 'canon eos 650',
+    orientation: 'portrait',
+    date: '10/2/2025',
+    src: eiffelTower,
+    stampSrc: francePassportStamp,
+    alt: 'eiffel tower',
+    id: 4,
   },
 ]
 
