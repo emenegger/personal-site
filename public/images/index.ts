@@ -7,7 +7,20 @@ import tabletop2 from "./tabletop2.jpg";
 import mexicoPassportStamp from "./Mexico_Passport_Stamp.jpg";
 import malagaPark from "./malaga_park.jpeg";
 import eiffelTower from "./eiffel_tower.jpeg";
-import francePassportStamp from './france_passport_stamp.jpg'
+import francePassportStamp from "./france_passport_stamp.jpg";
+import pnwLake from "./pnwLake.jpg";
+import usPassportStamp from "./US_passport_stamp.png";
+import chileRainbow from "./chile_rainbow.jpg";
+import chilePassportStamp from "./Chile_Passport_Stamp.jpg";
+import placeholder from "./placeholder.webp";
+import salurDeUyuni from "./bolivia.jpeg";
+import evanInBerlin from "./evan_in_berlin.jpg";
+import germanyPassportStamp from "./germany_passport_stamp.jpg";
+import colombia from "./colombia.jpeg";
+import colombiaPassportStamp from "./colombia_passport_stamp.jpg";
+import petersburg from "./petersburg.jpg";
+import russiaPassportStamp from './russia_passport_stamp.png'
+import thailand from './thailand.jpg'
 
 export {
   beach,
@@ -19,5 +32,18 @@ export {
   mexicoPassportStamp,
   malagaPark,
   eiffelTower,
-  francePassportStamp
+  francePassportStamp,
+  pnwLake,
+  usPassportStamp,
+  chileRainbow,
+  chilePassportStamp,
+  placeholder,
+  salurDeUyuni,
+  evanInBerlin,
+  germanyPassportStamp,
+  colombia,
+  colombiaPassportStamp,
+  petersburg,
+  russiaPassportStamp,
+  thailand,
 };

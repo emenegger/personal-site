@@ -1,16 +1,21 @@
 import Image from "next/image";
 import { Images } from "../images/images";
+import { useCallback } from "react";
+import { placeholder } from "../public/images";
 
-type ImageCardProps = Images;
+type ImageCardProps = Images & {
+  onClick: (args: string | null) => void;
+};
 
 const ImageCard = ({
   orientation = "landscape",
-  src,
+  src = placeholder,
   location,
   camera,
   date,
-  stampSrc,
-  alt,
+  stampSrc = placeholder,
+  alt = "",
+  onClick,
 }: ImageCardProps) => {
   // to do: add orientation styling
   const aspectRatio =
@@ -22,10 +27,20 @@ const ImageCard = ({
       ? "text-base sm:text-lg md:text-xl"
       : "text-sm sm:text-base";
 
+  const handleClick = useCallback(() => {
+    onClick(null);
+  }, []);
+
   return (
     <div
       className={`bg-amber-50 p-4 pb-8 shadow-xl ${cardWidth} rounded-l mb-4`}
     >
+      <div
+        className={`flex flex-col text-gray-700 font-mono text-sm sm:text-base`}
+        onClick={handleClick}
+      >
+        <p>close</p>
+      </div>
       <div className={`relative ${aspectRatio} bg-amber-50`}>
         <Image src={src} alt={alt} fill className="object-cover pb-4" />
       </div>
