@@ -100,6 +100,9 @@ const Map = ({ onClick }) => {
       })
 
       .catch((error) => console.error("Error loading map:", error));
+      return () => {
+        svg.selectAll("*").remove();
+      };
   }, []);
 
   return <svg ref={svgRef}></svg>;

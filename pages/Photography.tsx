@@ -1,82 +1,75 @@
 import { Images, images3 } from "../images/images";
-import { ImageCard } from "../components";
-import Map from "../components/Map";
 import { useCallback, useState } from "react";
+import MapLayout from "../components/MapLayout";
+import GridLayout from "../components/GridLayout";
+
+type LayoutType = "map" | "grid" | "carousel";
+
+const colors = {
+  active: "text-slate-100",
+  inactive: "text-gray-700",
+} as const;
+
+const layouts: Record<string, LayoutType> = {
+  map: "map",
+  grid: "grid",
+  carousel: "carousel",
+};
+
+interface LayoutTextsProps {
+  handleSetLayout: (args: LayoutType) => void;
+  type: LayoutType;
+  layout: LayoutType;
+}
+
+const LayoutText = ({ handleSetLayout, type, layout }: LayoutTextsProps) => {
+  return (
+    <p
+      className={`text-sm ${
+        layout === type ? colors.active : colors.inactive
+      }`}
+      onClick={() => handleSetLayout(type)}
+    >
+      {type} view
+    </p>
+  );
+};
 
 const Photography = ({ images }: { images: Images[] }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [currentPhotoId, setCurrentPhotoId] = useState<string | null>("");
+  const [layout, setLayout] = useState<LayoutType>("map");
 
-  const handleClick = useCallback((id: string | null) => {
-    setIsModalOpen((prev) => !prev);
-    setCurrentPhotoId(id);
+  const handleSetLayout = useCallback((layout: LayoutType) => {
+    setLayout(layout);
   }, []);
 
-  const currentImage = images.find((ele) => ele.countryId == currentPhotoId);
-  const {
-    src,
-    stampSrc,
-    orientation,
-    location,
-    camera,
-    date,
-    alt,
-    id,
-    countryId,
-  } = currentImage ?? {};
+  const renderLayout = () => {
+    switch(layout) {
+      case layouts.map:
+        return <MapLayout images={images} />;
+      case layouts.grid:
+        return <GridLayout images={images} />;
+      // case layouts.carousel:
+      //   return <CarouselView images={images} />;
+      default:
+        return <MapLayout images={images} />;
+    }
+  };
 
   return (
-    <div className="relative min-h-screen bg-[#4A7C89] p-30">
-      <div className="font-mono flex flex-col md:flex-row justify-center items-center text-center text-[#F5F5DC]">
-        <h1
-          className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl px-2"
-          style={{
-            textShadow: "3px 3px 0px #4A4A4A, 6px 6px 0px #2A2A2A",
-          }}
-        >
-          welcome
-        </h1>
-        <p className="text-sm md:text-xl px-2">to some</p>
-        <h1
-          className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl px-2"
-          style={{
-            textShadow: "3px 3px 0px #4A4A4A, 6px 6px 0px #2A2A2A",
-          }}
-        >
-          photography
-        </h1>
+    <div className="relative min-h-screen w-screen">
+      <div className="fixed top-18 right-0 z-50 flex flex-col justify-end font-mono align-end">
+        <LayoutText
+          handleSetLayout={handleSetLayout}
+          type={layouts.grid}
+          layout={layout}
+        />
+        <LayoutText
+          handleSetLayout={handleSetLayout}
+          type={layouts.map}
+          layout={layout}
+        />
       </div>
-      <div
-        className="font-satisfy absolute left-6 top-1/3 -translate-y-2/3 text-[#F5F5DC] text-sm md:text-4xl w-20 md:w-40 "
-        style={{
-          textShadow: "2px 2px 0px #4A4A4A, 3px 3px 0px #2A2A2A",
-        }}
-      >
-        click a country to see more
-      </div>
-      {isModalOpen && currentImage && (
-        <>
-          <div className="fixed inset-0 bg-black opacity-50 z-40" />
-          <div className="absolute w-screen h-screen justify-center items-start flex z-50">
-            <div className="h-4/5 w-4/5 flex justify-center items-center">
-              <ImageCard
-                src={src}
-                stampSrc={stampSrc}
-                orientation={orientation}
-                location={location}
-                camera={camera}
-                date={date}
-                alt={alt}
-                key={id}
-                id={id}
-                countryId={countryId}
-                onClick={handleClick}
-              />
-            </div>
-          </div>
-        </>
-      )}
-      <Map onClick={handleClick} />
+      {renderLayout()}
     </div>
   );
 };

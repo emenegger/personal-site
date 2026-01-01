@@ -5,6 +5,7 @@ import { placeholder } from "../public/images";
 
 type ImageCardProps = Images & {
   onClick: (args: string | null) => void;
+  showCloseButton?: boolean;
 };
 
 const ImageCard = ({
@@ -16,16 +17,17 @@ const ImageCard = ({
   stampSrc = placeholder,
   alt = "",
   onClick,
+  showCloseButton = false,
 }: ImageCardProps) => {
   // to do: add orientation styling
   const aspectRatio =
     orientation === "landscape" ? "aspect-[4/3]" : "aspect-[3/4]";
-  const cardWidth = orientation === "landscape" ? "w-3/5" : "w-1/3";
+  // const cardWidth = orientation === "landscape" ? "w-3/5" : "w-1/3";
 
   const textSize =
     orientation === "landscape"
-      ? "text-base sm:text-lg md:text-xl"
-      : "text-sm sm:text-base";
+      ? "text-xs sm:text-lg md:text-m"
+      : "text-xs sm:text-base";
 
   const handleClick = useCallback(() => {
     onClick(null);
@@ -33,14 +35,16 @@ const ImageCard = ({
 
   return (
     <div
-      className={`bg-amber-50 p-4 pb-8 shadow-xl ${cardWidth} rounded-l mb-4`}
+      className={`bg-amber-50 p-4 pb-8 shadow-xl rounded-lg mb-4`}
     >
-      <div
-        className={`flex flex-col text-gray-700 font-mono text-sm sm:text-base`}
-        onClick={handleClick}
-      >
-        <p>close</p>
-      </div>
+      {showCloseButton && (
+        <div
+          className={`flex flex-col text-gray-700 font-mono text-sm sm:text-base`}
+          onClick={handleClick}
+        >
+          <p>close</p>
+        </div>
+      )}
       <div className={`relative ${aspectRatio} bg-amber-50`}>
         <Image src={src} alt={alt} fill className="object-cover pb-4" />
       </div>
@@ -50,7 +54,7 @@ const ImageCard = ({
           <p>camera: {camera}</p>
           <p>date: {date}</p>
         </div>
-        <div className="max-w-48 h-auto">
+        <div className="max-w-48 h-auto w-20 md:w-40 flex align-center">
           <Image
             src={stampSrc}
             alt="stamp"
