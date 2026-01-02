@@ -1,7 +1,7 @@
 import Image from "next/image";
-import { Images } from "../images/images";
+import { Images } from "../../images/images";
 import { useCallback } from "react";
-import { placeholder } from "../public/images";
+import { placeholder } from "../../public/images";
 
 type ImageCardProps = Images & {
   onClick?: (args: string | null) => void;

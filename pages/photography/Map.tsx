@@ -1,10 +1,9 @@
 "use client";
-
 import { select, geoPath, geoEqualEarth } from "d3";
 import { useEffect, useRef } from "react";
 import * as topojson from "topojson-client";
-import { visitedCountries } from "../public/constants/countries";
-import { UNVISITED_COLORS, colors } from "../public/constants/colors";
+import { visitedCountries } from "./countries";
+import { UNVISITED_COLORS, colors } from "./colors";
 
 const getCountryData = (d) =>
   visitedCountries.find((country) => country.id === d.id) ??

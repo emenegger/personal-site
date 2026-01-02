@@ -1,8 +1,6 @@
 import { Images, images3 } from "../images/images";
 import { useCallback, useState } from "react";
-import MapLayout from "../components/MapLayout";
-import GridLayout from "../components/GridLayout";
-import CarouselLayout from "../components/CarouselLayout";
+import { CarouselLayout, GridLayout, MapLayout } from './photography/index';
 
 type LayoutType = "map" | "grid" | "carousel";
 

@@ -1,7 +1,7 @@
 'use strict'
-import { Images, images3 } from "../images/images";
-import { ImageCard } from "../components";
-import Map from "../components/Map";
+import { Images, images3 } from "../../images/images";
+import ImageCard from "./ImageCard";
+import Map from "./Map";
 import { useCallback, useState } from "react";
 
 const MapLayout = ({ images }: { images: Images[] }) => {

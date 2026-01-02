@@ -1,4 +1,3 @@
-export { default as ParallaxContainer} from './ParallaxContainer'
-export { default as MainNavBar} from './MainNavbar'
-export { default as Content } from './Content'
-export { default as ImageCard } from './ImageCard'
+export { default as ParallaxContainer} from './ParallaxContainer';
+export { default as MainNavBar} from './MainNavbar';
+export { default as Content } from './Content';
