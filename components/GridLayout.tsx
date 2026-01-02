@@ -27,7 +27,6 @@ const GridLayout = ({ images }: { images: Images[] }) => {
                 date={date}
                 stampSrc={stampSrc}
                 alt={alt}
-                onClick={() => {}}
                 id={id}
                 countryId={countryId}
               />

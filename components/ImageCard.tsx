@@ -4,7 +4,7 @@ import { useCallback } from "react";
 import { placeholder } from "../public/images";
 
 type ImageCardProps = Images & {
-  onClick: (args: string | null) => void;
+  onClick?: (args: string | null) => void;
   showCloseButton?: boolean;
 };
 
@@ -19,10 +19,8 @@ const ImageCard = ({
   onClick,
   showCloseButton = false,
 }: ImageCardProps) => {
-  // to do: add orientation styling
   const aspectRatio =
     orientation === "landscape" ? "aspect-[4/3]" : "aspect-[3/4]";
-  // const cardWidth = orientation === "landscape" ? "w-3/5" : "w-1/3";
 
   const textSize =
     orientation === "landscape"
@@ -30,8 +28,8 @@ const ImageCard = ({
       : "text-xs sm:text-base";
 
   const handleClick = useCallback(() => {
-    onClick(null);
-  }, []);
+    onClick && onClick(null);
+  }, [onClick]);
 
   return (
     <div
