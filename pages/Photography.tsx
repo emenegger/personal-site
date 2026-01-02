@@ -1,37 +1,14 @@
 import { Images, images3 } from "../images/images";
 import { useCallback, useState } from "react";
-import { CarouselLayout, GridLayout, MapLayout } from './photography/index';
+import { CarouselLayout, GridLayout, MapLayout, LayoutText } from './photography/index';
 
-type LayoutType = "map" | "grid" | "carousel";
-
-const colors = {
-  active: "text-slate-100",
-  inactive: "text-gray-700",
-} as const;
+export type LayoutType = "map" | "grid" | "carousel";
 
 const layouts: Record<string, LayoutType> = {
   map: "map",
   grid: "grid",
   carousel: "carousel",
 } as const;
-
-interface LayoutTextsProps {
-  handleSetLayout: (args: LayoutType) => void;
-  type: LayoutType;
-  layout: LayoutType;
-}
-
-// to do: move this into a separate component
-const LayoutText = ({ handleSetLayout, type, layout }: LayoutTextsProps) => {
-  return (
-    <p
-      className={`text-sm ${layout === type ? colors.active : colors.inactive}`}
-      onClick={() => handleSetLayout(type)}
-    >
-      {type} view
-    </p>
-  );
-};
 
 const Photography = ({ images }: { images: Images[] }) => {
   const [layout, setLayout] = useState<LayoutType>(layouts.grid);
@@ -49,7 +26,7 @@ const Photography = ({ images }: { images: Images[] }) => {
       case layouts.carousel:
         return <CarouselLayout images={images} />;
       default:
-        return <MapLayout images={images} />;
+        return <GridLayout images={images} />;
     }
   };
 

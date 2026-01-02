@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo, useState } from "react";
-import { Images } from "../images/images";
+import { Images } from "../../images/images";
 import ImageCard from "./ImageCard";
 import ImageWrapper from "./ImageWrapper";
 
