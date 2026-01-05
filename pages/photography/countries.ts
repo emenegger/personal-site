@@ -9,85 +9,85 @@ export const visitedCountries: CountryData[] = [
   {
     name: "United States of America",
     visited: true,
-    color: "#E67E22", // Bright orange
+    color: '#e84524',
     id: "840",
   },
   { 
     name: "Mexico", 
     visited: true, 
-    color: "#D4AF37", // Gold
+    color: '#f57328',
     id: "484" 
   },
   { 
     name: "Russia", 
     visited: true, 
-    color: "#8B9A46", // Olive green
+    color: '#1a1f4d',
     id: "643" 
   },
   { 
     name: "Argentina", 
     visited: true, 
-    color: "#E8C547", // Golden yellow
+    color: '#2d5a8c',
     id: "032" 
   },
   { 
     name: "India", 
     visited: true, 
-    color: "#8B2635", // Burgundy
+    color: '#3d9bc9',
     id: "356" 
   },
   { 
     name: "Thailand", 
     visited: true, 
-    color: "#F39C12", // Warm orange
+    color: '#3d9bc9',
     id: "764" 
   },
   { 
     name: "France", 
     visited: true, 
-    color: "#A0373C", // Wine red
+    color: '#f8a72b',
     id: "250" 
   },
   { 
     name: "Spain", 
     visited: true, 
-    color: "#EDD382", // Soft gold
+    color: '#f5d333',
     id: "724" 
   },
   { 
     name: "Guatemala", 
     visited: true, 
-    color: "#D35400", // Burnt orange
+    color: '#c4d946',
     id: "320" 
   },
   { 
     name: "Chile", 
     visited: true, 
-    color: "#6B8E23", // Moss green
+    color: '#80d65f',
     id: "152" 
   },
   { 
     name: "Colombia", 
     visited: true, 
-    color: "#9CAF4F", // Lime green
+    color: '#5bc9d4',
     id: "170" 
   },
   { 
     name: "Canada", 
     visited: true, 
-    color: "#556B2F", // Dark olive
+    color: '#1a1f4d',
     id: "124" 
   },
   { 
     name: "Germany", 
     visited: true, 
-    color: "#C9A982", // Sand/tan
+    color: '#f8a72b',
     id: "276" 
   },
   { 
     name: "Bolivia", 
     visited: true, 
-    color: "#B33A3A", // Medium red
+    color: '#f57328',
     id: "068" 
   },
 ];

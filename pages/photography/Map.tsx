@@ -3,14 +3,14 @@ import { select, geoPath, geoEqualEarth } from "d3";
 import { useEffect, useRef } from "react";
 import * as topojson from "topojson-client";
 import { visitedCountries } from "./countries";
-import { UNVISITED_COLORS, colors } from "./colors";
+import { UNVISITED_COLORS, colors, mediumGrays } from "./colors";
 
 const getCountryData = (d) =>
   visitedCountries.find((country) => country.id === d.id) ??
   visitedCountries.find((country) => country.name === d.properties.name);
 
 const getUnvisitedColor = () =>
-  UNVISITED_COLORS[Math.floor(Math.random() * UNVISITED_COLORS.length)];
+  mediumGrays[Math.floor(Math.random() * mediumGrays.length)];
 
 const Map = ({ onClick }) => {
   const svgRef = useRef<SVGSVGElement>(null);
@@ -22,7 +22,6 @@ const Map = ({ onClick }) => {
     const width = container?.clientWidth;
     const height = container?.clientHeight || (width ?? 0) * 0.625;
 
-    // Create SVG
     const svg = select(svgRef.current)
       .attr("viewBox", [0, 0, width, height])
       .style("max-width", "100%")
@@ -35,15 +34,50 @@ const Map = ({ onClick }) => {
     const path = geoPath(projection);
 
     const defs = svg.append("defs");
-  
-    const pinIcon = defs.append("symbol")
+
+    const pinIcon = defs
+      .append("symbol")
       .attr("id", "location-pin")
       .attr("viewBox", "0 0 24 24");
-    
-    pinIcon.append("path")
-      .attr("d", "M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z")
-      .attr("fill", "#C9D9C1"); 
 
+    pinIcon
+      .append("path")
+      .attr(
+        "d",
+        "M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+      )
+      .attr("fill", "#C9D9C1");
+
+    const elevationHeight = 150;
+    const elevationWidth = 150;
+
+    const filter = defs
+      .append("filter")
+      .attr("id", "elevation-shadow")
+      .attr("height", `${elevationHeight}%`)
+      .attr("width", `${elevationWidth}%`);
+
+    filter
+      .append("feGaussianBlur")
+      .attr("in", "SourceAlpha")
+      .attr("stdDeviation", 3);
+
+    filter
+      .append("feOffset")
+      .attr("dx", 2)
+      .attr("dy", 4)
+      .attr("result", "offsetblur");
+
+    filter
+      .append("feComponentTransfer")
+      .append("feFuncA")
+      .attr("type", "linear")
+      .attr("slope", 0.5);
+
+    const feMerge = filter.append("feMerge");
+
+    feMerge.append("feMergeNode");
+    feMerge.append("feMergeNode").attr("in", "SourceGraphic");
 
     fetch("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json")
       .then((response) => response.json())
@@ -63,45 +97,53 @@ const Map = ({ onClick }) => {
           .join("path")
           .attr("d", path)
           .attr("fill", (d) => {
-            const isVisited = visitedCountries.some((ele) => ele.id === d.id);
-            const fillColor = isVisited ? colors.visited : getUnvisitedColor();
+            const visitedColor = visitedCountries.find(
+              (ele) => ele.id === d.id
+            )?.color;
+            const fillColor = visitedColor ?? getUnvisitedColor();
             return fillColor;
           })
           .attr("stroke", "none")
           .attr("stroke-width", 0.5)
           .on("mouseover", function (_e, d) {
             const isVisited = visitedCountries.some((ele) => ele.id === d.id);
-            if (isVisited) select(this).attr("fill", colors.visitedHover);
+            if (isVisited) {
+              select(this).style("filter", "url(#elevation-shadow)").raise();
+            }
           })
           .on("mouseout", function (_e, d) {
             const isVisited = visitedCountries.some((ele) => ele.id === d.id);
-            if (isVisited) select(this).attr("fill", colors.visited);
+            if (isVisited) {
+              select(this).style('filter', null)
+            }
           })
           .on("click", function (_e, d) {
             onClick(d.id);
           });
 
         svg
-        .append("g")
-        .attr("class", "pins")
-        .selectAll("use")
-        .data(countries.features.filter(d => {
-          const countryData = getCountryData(d);
-          return countryData && countryData.color;
-        }))
-        .join("use")
-        .attr("href", "#location-pin")
-        .attr("width", 24)
-        .attr("height", 24)
-        .attr("x", (d) => path.centroid(d)[0] - 12)
-        .attr("y", (d) => path.centroid(d)[1] - 24)
-        .style("pointer-events", "none");
+          .append("g")
+          .attr("class", "pins")
+          .selectAll("use")
+          .data(
+            countries.features.filter((d) => {
+              const countryData = getCountryData(d);
+              return countryData && countryData.color;
+            })
+          )
+          .join("use")
+          .attr("href", "#location-pin")
+          .attr("width", 24)
+          .attr("height", 24)
+          .attr("x", (d) => path.centroid(d)[0] - 12)
+          .attr("y", (d) => path.centroid(d)[1] - 24)
+          .style("pointer-events", "none");
       })
 
       .catch((error) => console.error("Error loading map:", error));
-      return () => {
-        svg.selectAll("*").remove();
-      };
+    return () => {
+      svg.selectAll("*").remove();
+    };
   }, []);
 
   return <svg ref={svgRef}></svg>;

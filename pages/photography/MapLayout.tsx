@@ -1,8 +1,9 @@
-'use strict'
+"use strict";
 import { Images, images3 } from "../../images/images";
 import ImageCard from "./ImageCard";
 import Map from "./Map";
 import { useCallback, useState } from "react";
+import { colors } from "./colors";
 
 const MapLayout = ({ images }: { images: Images[] }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -27,7 +28,10 @@ const MapLayout = ({ images }: { images: Images[] }) => {
   } = currentImage ?? {};
 
   return (
-    <div className="relative min-h-screen bg-[#4A7C89] p-30">
+    <div
+      className="relative min-h-screen bg-[#e5e7eb] p-30"
+      style={{ backgroundColor: colors.background }}
+    >
       <div className="font-mono flex flex-col md:flex-row justify-center items-center text-center text-[#F5F5DC]">
         <h1
           className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl px-2"

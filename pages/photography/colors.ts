@@ -22,6 +22,28 @@ export const UNVISITED_COLORS = [
   // '#4A4A4A', // Dark gray/charcoal
 ] as const;
 
+export const thermographicColors = [
+  '#1a1f4d', // Dark navy blue (coolest - northern regions)
+  '#2d5a8c', // Deep blue
+  '#3d9bc9', // Bright cyan/turquoise
+  '#5bc9d4', // Light cyan
+  '#80d65f', // Bright green
+  '#c4d946', // Yellow-green
+  '#f5d333', // Bright yellow
+  '#f8a72b', // Orange-yellow
+  '#f57328', // Orange
+  '#e84524', // Red-orange (hottest - equatorial regions)
+];
+
+export const mediumGrays = [
+  '#5a6171', // Slightly darker than gray-500
+  '#6b7280', // gray-500
+  '#838a97', // Between gray-500 and gray-400
+  '#9ca3af', // gray-400
+  '#b7bcc5', // Between gray-400 and gray-300
+  '#d1d5db', // gray-300
+];
+
 export const vintageColors = {
   green: "#838448",
   blue: "#7a8e82",
@@ -35,7 +57,9 @@ export const colors = {
   accent1: "#2EA6A6",
   border: "#F2DEC4",
   accent2: "#D9631E",
-  background: "#4A7C89",
+  // background: "#4A7C89",
+  // background: '#e5e7eb',
+  background: '#374151',
   notVisited2: "#D3D9C1",
   visitedHover: '#66BB6A',
 } as const;
