@@ -78,6 +78,12 @@ export const colors = {
   visitedHover: "#66BB6A",
 } as const;
 
+export const heatMapColors = {
+  yellow: '#FFE156',
+  golden: '#FFB84D',
+  orange: '#FF8C42'
+} as const;
+
 // colors.ts
 export const createHeatmapScale = (maxCount: number) => {
   return {
@@ -92,22 +98,23 @@ export const createHeatmapScale = (maxCount: number) => {
     // Glow radius - large and subtle
     getGlowRadius: (count: number) => {
       const minRadius = 20;
-      const maxRadius = 75; // Much larger for subtle spread
+      const maxRadius = 55; // Much larger for subtle spread
       const normalized = Math.sqrt(count / maxCount);
       return minRadius + (normalized * (maxRadius - minRadius));
     },
     
     // Bright, saturated color for the core
     getCoreColor: (count: number) => {
-      const intensity = count / maxCount;
+      // const intensity = count / maxCount;
       
-      if (intensity < 0.3) {
-        return '#FFE156'; // Bright yellow
-      } else if (intensity < 0.6) {
-        return '#FFB84D'; // Golden
-      } else {
-        return '#FF8C42'; // Bright orange
-      }
+      // if (intensity < 0.3) {
+      //   return '#FFE156'; // Bright yellow
+      // } else if (intensity < 0.6) {
+      //   return '#FFB84D'; // Golden
+      // } else {
+      //   return '#FF8C42'; // Bright orange
+      // }
+      return heatMapColors.orange;
     },
     
     // Softer color for the glow

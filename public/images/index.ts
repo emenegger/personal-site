@@ -24,7 +24,14 @@ import thailand from './thailand.jpg';
 import zion from './zion.jpeg';
 import maine from './maine.jpeg';
 import boliviaPassportStamp from './bolivia_passport_stamp.jpeg'
-import laPaz from './laPaz.jpeg'
+import laPaz from './laPaz.jpeg';
+import meridaHacienda from './meridaHacienda.jpeg';
+import cdmxBookstore from './cdmxBookstore.jpg';
+import escondido from './escondido.jpeg';
+import icelandRock from './icelandRock.jpeg';
+import icelandPassportStamp from './iceland_passport_stamp.jpeg'
+import guatemala from './guatemala.jpeg';
+import guatemalaPassportStamp from './guatemala_passport_stamp.jpeg'
 
 export {
   beach,
@@ -54,4 +61,11 @@ export {
   maine,
   boliviaPassportStamp,
   laPaz,
+  meridaHacienda,
+  cdmxBookstore,
+  escondido,
+  icelandRock,
+  guatemala,
+  guatemalaPassportStamp,
+  icelandPassportStamp,
 };

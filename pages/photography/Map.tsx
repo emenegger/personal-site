@@ -3,7 +3,7 @@ import { select, geoPath, geoEqualEarth, zoom, zoomIdentity } from "d3";
 import { forwardRef, useEffect, useImperativeHandle, useRef } from "react";
 import * as topojson from "topojson-client";
 import { visitedCountries } from "./countries";
-import { colors, createHeatmapScale, mediumGrays } from "./colors";
+import { colors, createHeatmapScale, heatMapColors, mediumGrays } from "./colors";
 import { LocationHeatPoint } from "./util";
 
 const getCountryData = (d) =>
@@ -218,8 +218,7 @@ const Map = forwardRef<MapRef, MapProps>(({ onClick, heatPoints }, ref) => {
           .attr("d", path)
           .attr("stroke", (d) => {
             const isVisited = visitedCountries.some((ele) => ele.id === d.id);
-            const fillColor = '#FFB84D';
-            return isVisited ? fillColor : 'none';
+            return isVisited ? heatMapColors.orange : 'none';
           })
           .attr("stroke-width", 0.5)
           .on("mouseover", function (_e, d) {
@@ -236,6 +235,7 @@ const Map = forwardRef<MapRef, MapProps>(({ onClick, heatPoints }, ref) => {
           })
           .on("click", function (_e, d) {
             onClick(d.id);
+            console.log('***', d)
           });
 
         heatPoints.forEach((point, index) => {

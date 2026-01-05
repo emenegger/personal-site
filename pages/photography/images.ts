@@ -23,6 +23,13 @@ import {
   maine,
   boliviaPassportStamp,
   laPaz,
+  meridaHacienda,
+  cdmxBookstore,
+  escondido,
+  icelandRock,
+  guatemala,
+  guatemalaPassportStamp,
+  icelandPassportStamp,
 } from "../../public/images";
 
 export interface Images {
@@ -41,7 +48,7 @@ export interface Images {
   alt: string | undefined;
   id: number | undefined;
   countryId: string | undefined;
-  coordinates: [lon: number, lat: number] | undefined; 
+  coordinates: [lon: number, lat: number] | undefined;
 }
 
 export const images3: Images[] = [
@@ -70,6 +77,18 @@ export const images3: Images[] = [
     coordinates: [-89.655851, 21.288643],
   },
   {
+    location: "olympia, washington",
+    camera: "nikon d7500",
+    orientation: "landscape",
+    date: "10/2/2025", // update date
+    src: pnwLake,
+    stampSrc: usPassportStamp,
+    alt: "pnw lake",
+    id: 5,
+    countryId: "840",
+    coordinates: [-122.909858, 47.03037],
+  },
+  {
     location: "malaga, spain",
     camera: "canon eos 650",
     orientation: "landscape",
@@ -92,18 +111,6 @@ export const images3: Images[] = [
     id: 4,
     countryId: "250",
     coordinates: [2.293333, 48.859189],
-  },
-  {
-    location: "olympia, washington",
-    camera: "nikon d7500",
-    orientation: "landscape",
-    date: "10/2/2025", // update date
-    src: pnwLake,
-    stampSrc: usPassportStamp,
-    alt: "pnw lake",
-    id: 5,
-    countryId: "840",
-    coordinates: [-122.909858, 47.03037],
   },
   {
     location: "torres del paine, chile",
@@ -179,8 +186,8 @@ export const images3: Images[] = [
   },
   {
     location: "zion national park, utah",
-    camera: 'canon eos 650',
-    orientation: 'portrait',
+    camera: "canon eos 650",
+    orientation: "portrait",
     date: "04/19/2025",
     src: zion,
     stampSrc: usPassportStamp,
@@ -191,8 +198,8 @@ export const images3: Images[] = [
   },
   {
     location: "union, maine",
-    camera: 'dji mini 2',
-    orientation: 'landscape',
+    camera: "dji mini 2",
+    orientation: "landscape",
     date: "10/09/2021",
     src: maine,
     stampSrc: usPassportStamp,
@@ -212,6 +219,66 @@ export const images3: Images[] = [
     id: 14,
     countryId: "068",
     coordinates: [-67.765335, -20.102586],
+  },
+  {
+    location: "merida, mexico",
+    camera: "canon eos 650",
+    orientation: "landscape",
+    date: "02/23/2025",
+    src: meridaHacienda,
+    stampSrc: mexicoPassportStamp,
+    alt: "hacienda",
+    id: 15,
+    countryId: "484",
+    coordinates: [-89.626936, 21.070894],
+  },
+  {
+    location: "mexico city, mexico",
+    camera: "nikon d7500",
+    orientation: "landscape",
+    date: "10/23/2022",
+    src: cdmxBookstore,
+    stampSrc: mexicoPassportStamp,
+    alt: "bookstore",
+    id: 16,
+    countryId: "484",
+    coordinates: [-99.154574, 19.434575],
+  },
+  {
+    location: "puerto escondido, mexico",
+    camera: "unknown",
+    orientation: "landscape",
+    date: "07/02/2023",
+    src: escondido,
+    stampSrc: mexicoPassportStamp,
+    alt: "boat",
+    id: 17,
+    countryId: "484",
+    coordinates: [-97.096481, 15.868563],
+  },
+  {
+    location: "vík, iceland",
+    camera: "nikon d7500",
+    orientation: "landscape",
+    date: "07/17/2021",
+    src: icelandRock,
+    stampSrc: icelandPassportStamp,
+    alt: "rock",
+    id: 18,
+    countryId: "352",
+    coordinates: [-19.004850, 63.414944],
+  },
+  {
+    location: "alotenango, guatemala",
+    camera: "unknown",
+    orientation: "portrait",
+    date: "05/30/2023",
+    src: guatemala,
+    stampSrc: guatemalaPassportStamp,
+    alt: "guatemala",
+    id: 19,
+    countryId: "352",
+    coordinates: [ -90.796766, 14.488878],
   },
 ];
 
