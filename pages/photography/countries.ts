@@ -90,4 +90,58 @@ export const visitedCountries: CountryData[] = [
     color: '#f57328',
     id: "068" 
   },
+  { 
+    name: "Iceland", 
+    visited: true, 
+    color: '#f57328', // todo
+    id: "352"
+  },
+  { 
+    name: "Vietnam", 
+    visited: true, 
+    color: '#f57328', // todo
+    id: "704"
+  },
+  { 
+    name: "Portugal", 
+    visited: true, 
+    color: '#f57328', // todo
+    id: "620"
+  },
+  { 
+    name: "Italy", 
+    visited: true, 
+    color: '#f57328', // todo
+    id: "380"
+  },
+  { 
+    name: "Croatia", 
+    visited: true, 
+    color: '#f57328', // todo
+    id: "191" // todo
+  },
+  { 
+    name: "Cambodia", 
+    visited: true, 
+    color: '#f57328', // todo
+    id: "116"
+  },
+  { 
+    name: "United Kingdom", 
+    visited: true, 
+    color: '#f57328', // todo
+    id: "826" 
+  },
+  { 
+    name: "Bosnia and Herz.",
+    visited: true, 
+    color: '#f57328', // todo
+    id: "070"
+  },
+  { 
+    name: "Hungary",
+    visited: true, 
+    color: '#f57328', // todo
+    id: "348"
+  },
 ];
