@@ -1,6 +1,6 @@
 "use client";
 import { select, geoPath, geoEqualEarth, zoom, zoomIdentity } from "d3";
-import { useEffect, useRef } from "react";
+import { forwardRef, useEffect, useImperativeHandle, useRef } from "react";
 import * as topojson from "topojson-client";
 import { visitedCountries } from "./countries";
 import { colors, mediumGrays } from "./colors";
@@ -12,8 +12,84 @@ const getCountryData = (d) =>
 const getUnvisitedColor = () =>
   mediumGrays[Math.floor(Math.random() * mediumGrays.length)];
 
-const Map = ({ onClick }) => {
+export interface MapRef {
+  zoomIn: () => void;
+  zoomOut: () => void;
+  resetZoom: () => void;
+  panUp: () => void;
+  panDown: () => void;
+  panLeft: () => void;
+  panRight: () => void;
+}
+
+interface MapProps {
+  onClick: (id: string | null) => void;
+}
+
+const Map = forwardRef<MapRef, MapProps>(({ onClick }, ref) => {
   const svgRef = useRef<SVGSVGElement>(null);
+  const zoomBehaviorRef = useRef<any>(null);
+  const svgSelectionRef = useRef<any>(null);
+  const isCurrent = svgSelectionRef.current && zoomBehaviorRef.current
+
+  useImperativeHandle(ref, () => ({
+    zoomIn: () => {
+      if (isCurrent) {
+        svgSelectionRef.current
+          .transition()
+          .duration(300)
+          .call(zoomBehaviorRef.current.scaleBy, 1.5);
+      }
+    },
+    zoomOut: () => {
+      if (isCurrent) {
+        svgSelectionRef.current
+          .transition()
+          .duration(300)
+          .call(zoomBehaviorRef.current.scaleBy, 0.67);
+      }
+    },
+    resetZoom: () => {
+      if (isCurrent) {
+        svgSelectionRef.current
+          .transition()
+          .duration(500)
+          .call(zoomBehaviorRef.current.transform, zoomIdentity);
+      }
+    },
+    panUp: () => {
+      if (isCurrent) {
+        svgSelectionRef.current
+          .transition()
+          .duration(300)
+          .call(zoomBehaviorRef.current.translateBy, 0, 50);
+      }
+    },
+    panDown: () => {
+      if (isCurrent) {
+        svgSelectionRef.current
+          .transition()
+          .duration(300)
+          .call(zoomBehaviorRef.current.translateBy, 0, -50);
+      }
+    },
+    panLeft: () => {
+      if (isCurrent) {
+        svgSelectionRef.current
+          .transition()
+          .duration(300)
+          .call(zoomBehaviorRef.current.translateBy, 50, 0);
+      }
+    },
+    panRight: () => {
+      if (isCurrent) {
+        svgSelectionRef.current
+          .transition()
+          .duration(300)
+          .call(zoomBehaviorRef.current.translateBy, -50, 0);
+      }
+    },
+  }));
 
   useEffect(() => {
     if (!svgRef.current) return;
@@ -44,234 +120,8 @@ const Map = ({ onClick }) => {
 
     svg.call(zoomBehavior);
 
-    const controls = svg
-      .append("g")
-      .attr("class", "zoom-controls")
-      .attr("transform", `translate(${width - 60}, 20)`);
-
-    const zoomInBtn = controls
-      .append("g")
-      .attr("cursor", "pointer")
-      .on("click", () => {
-        svg.transition().duration(300).call(zoomBehavior.scaleBy, 1.5);
-      });
-
-    zoomInBtn
-      .append("rect")
-      .attr("width", 40)
-      .attr("height", 40)
-      .attr("rx", 5)
-      .attr("fill", "white")
-      .attr("stroke", "#666")
-      .attr("stroke-width", 1)
-      .style("filter", "drop-shadow(0 2px 4px rgba(0,0,0,0.1))");
-
-    zoomInBtn
-      .append("text")
-      .attr("x", 20)
-      .attr("y", 25)
-      .attr("text-anchor", "middle")
-      .attr("dominant-baseline", "middle")
-      .attr("font-size", 24)
-      .attr("font-weight", "300")
-      .attr("fill", "#333")
-      .text("+");
-
-    // Zoom out button
-    const zoomOutBtn = controls
-      .append("g")
-      .attr("cursor", "pointer")
-      .attr("transform", "translate(0, 50)")
-      .on("click", () => {
-        svg.transition().duration(300).call(zoomBehavior.scaleBy, 0.67);
-      });
-
-    zoomOutBtn
-      .append("rect")
-      .attr("width", 40)
-      .attr("height", 40)
-      .attr("rx", 5)
-      .attr("fill", "white")
-      .attr("stroke", "#666")
-      .attr("stroke-width", 1)
-      .style("filter", "drop-shadow(0 2px 4px rgba(0,0,0,0.1))");
-
-    zoomOutBtn
-      .append("text")
-      .attr("x", 20)
-      .attr("y", 25)
-      .attr("text-anchor", "middle")
-      .attr("dominant-baseline", "middle")
-      .attr("font-size", 24)
-      .attr("font-weight", "300")
-      .attr("fill", "#333")
-      .text("−");
-
-    // Reset button
-    const resetBtn = controls
-      .append("g")
-      .attr("cursor", "pointer")
-      .attr("transform", "translate(0, 100)")
-      .on("click", () => {
-        svg
-          .transition()
-          .duration(500)
-          .call(zoomBehavior.transform, zoomIdentity);
-      });
-
-    resetBtn
-      .append("rect")
-      .attr("width", 40)
-      .attr("height", 40)
-      .attr("rx", 5)
-      .attr("fill", "white")
-      .attr("stroke", "#666")
-      .attr("stroke-width", 1)
-      .style("filter", "drop-shadow(0 2px 4px rgba(0,0,0,0.1))");
-
-    resetBtn
-      .append("text")
-      .attr("x", 20)
-      .attr("y", 25)
-      .attr("text-anchor", "middle")
-      .attr("dominant-baseline", "middle")
-      .attr("font-size", 18)
-      .attr("fill", "#333")
-      .text("⟲");
-
-    const panDistance = 50;
-
-    const panControls = svg
-      .append("g")
-      .attr("class", "pan-controls")
-      .attr("transform", `translate(20, ${height - 140})`);
-
-    const upBtn = panControls
-      .append("g")
-      .attr("cursor", "pointer")
-      .attr("transform", "translate(45, 0)")
-      .on("click", () => {
-        svg
-          .transition()
-          .duration(300)
-          .call(zoomBehavior.translateBy, 0, panDistance);
-      });
-
-    upBtn
-      .append("rect")
-      .attr("width", 40)
-      .attr("height", 40)
-      .attr("rx", 5)
-      .attr("fill", "white")
-      .attr("stroke", "#666")
-      .attr("stroke-width", 1)
-      .style("filter", "drop-shadow(0 2px 4px rgba(0,0,0,0.1))");
-
-    upBtn
-      .append("text")
-      .attr("x", 20)
-      .attr("y", 25)
-      .attr("text-anchor", "middle")
-      .attr("dominant-baseline", "middle")
-      .attr("font-size", 20)
-      .attr("fill", "#333")
-      .text("▲");
-
-    // Down button
-    const downBtn = panControls
-      .append("g")
-      .attr("cursor", "pointer")
-      .attr("transform", "translate(45, 90)")
-      .on("click", () => {
-        svg
-          .transition()
-          .duration(300)
-          .call(zoomBehavior.translateBy, 0, -panDistance);
-      });
-
-    downBtn
-      .append("rect")
-      .attr("width", 40)
-      .attr("height", 40)
-      .attr("rx", 5)
-      .attr("fill", "white")
-      .attr("stroke", "#666")
-      .attr("stroke-width", 1)
-      .style("filter", "drop-shadow(0 2px 4px rgba(0,0,0,0.1))");
-
-    downBtn
-      .append("text")
-      .attr("x", 20)
-      .attr("y", 25)
-      .attr("text-anchor", "middle")
-      .attr("dominant-baseline", "middle")
-      .attr("font-size", 20)
-      .attr("fill", "#333")
-      .text("▼");
-
-    // Left button
-    const leftBtn = panControls
-      .append("g")
-      .attr("cursor", "pointer")
-      .attr("transform", "translate(0, 45)")
-      .on("click", () => {
-        svg
-          .transition()
-          .duration(300)
-          .call(zoomBehavior.translateBy, panDistance, 0);
-      });
-
-    leftBtn
-      .append("rect")
-      .attr("width", 40)
-      .attr("height", 40)
-      .attr("rx", 5)
-      .attr("fill", "white")
-      .attr("stroke", "#666")
-      .attr("stroke-width", 1)
-      .style("filter", "drop-shadow(0 2px 4px rgba(0,0,0,0.1))");
-
-    leftBtn
-      .append("text")
-      .attr("x", 20)
-      .attr("y", 25)
-      .attr("text-anchor", "middle")
-      .attr("dominant-baseline", "middle")
-      .attr("font-size", 20)
-      .attr("fill", "#333")
-      .text("◀");
-
-    // Right button
-    const rightBtn = panControls
-      .append("g")
-      .attr("cursor", "pointer")
-      .attr("transform", "translate(90, 45)")
-      .on("click", () => {
-        svg
-          .transition()
-          .duration(300)
-          .call(zoomBehavior.translateBy, -panDistance, 0);
-      });
-
-    rightBtn
-      .append("rect")
-      .attr("width", 40)
-      .attr("height", 40)
-      .attr("rx", 5)
-      .attr("fill", "white")
-      .attr("stroke", "#666")
-      .attr("stroke-width", 1)
-      .style("filter", "drop-shadow(0 2px 4px rgba(0,0,0,0.1))");
-
-    rightBtn
-      .append("text")
-      .attr("x", 20)
-      .attr("y", 25)
-      .attr("text-anchor", "middle")
-      .attr("dominant-baseline", "middle")
-      .attr("font-size", 20)
-      .attr("fill", "#333")
-      .text("▶");
+    zoomBehaviorRef.current = zoomBehavior;
+    svgSelectionRef.current = svg;
 
     const defs = svg.append("defs");
 
@@ -356,7 +206,6 @@ const Map = ({ onClick }) => {
             }
           })
           .on("click", function (_e, d) {
-            console.log(d);
             onClick(d.id);
           });
 
@@ -385,6 +234,6 @@ const Map = ({ onClick }) => {
   }, []);
 
   return <svg ref={svgRef}></svg>;
-};
+});
 
 export default Map;

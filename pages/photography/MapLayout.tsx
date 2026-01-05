@@ -1,17 +1,49 @@
 "use strict";
 import { Images, images3 } from "../../images/images";
 import ImageCard from "./ImageCard";
-import Map from "./Map";
-import { useCallback, useState } from "react";
+import Map, { MapRef } from "./Map";
+import { useCallback, useRef, useState } from "react";
 import { colors } from "./colors";
+import { IconButton } from "@mui/material";
+import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
+import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
+import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
+import ArrowCircleDownIcon from "@mui/icons-material/ArrowCircleDown";
+import ZoomInIcon from "@mui/icons-material/ZoomIn";
+import ZoomOutIcon from "@mui/icons-material/ZoomOut";
 
 const MapLayout = ({ images }: { images: Images[] }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentPhotoId, setCurrentPhotoId] = useState<string | null>("");
+  const mapRef = useRef<MapRef>(null);
 
   const handleClick = useCallback((id: string | null) => {
     setIsModalOpen((prev) => !prev);
     setCurrentPhotoId(id);
+  }, []);
+
+  const handleUpClick = useCallback(() => {
+    mapRef.current?.panUp();
+  }, []);
+
+  const handleDownClick = useCallback(() => {
+    mapRef.current?.panDown();
+  }, []);
+
+  const handleLeftClick = useCallback(() => {
+    mapRef.current?.panLeft();
+  }, []);
+
+  const handleRightClick = useCallback(() => {
+    mapRef.current?.panRight();
+  }, []);
+
+  const handleZoomInClick = useCallback(() => {
+    mapRef.current?.zoomIn();
+  }, []);
+
+  const handleZoomOutClick = useCallback(() => {
+    mapRef.current?.zoomOut();
   }, []);
 
   const currentImage = images.find((ele) => ele.countryId == currentPhotoId);
@@ -43,6 +75,32 @@ const MapLayout = ({ images }: { images: Images[] }) => {
         </h1>
         <p className="text-sm md:text-lg px-2">click a country to see more</p>
       </div>
+
+      <div className="absolute top-20 right-6 grid grid-cols-2 gap-0 z-30">
+        <IconButton onClick={handleZoomInClick} sx={{ color: '#f1f5f9' }}>
+          <ZoomInIcon />
+        </IconButton>
+        <IconButton onClick={handleZoomOutClick} sx={{ color: '#f1f5f9' }}>
+          <ZoomOutIcon />
+        </IconButton>
+        <div className="col-span-2 flex justify-center">
+          <IconButton onClick={handleUpClick} sx={{ color: '#f1f5f9' }}>
+            <ArrowCircleUpIcon />
+          </IconButton>
+        </div>
+        <IconButton onClick={handleLeftClick} sx={{ color: '#f1f5f9' }}>
+          <ArrowCircleLeftIcon />
+        </IconButton>
+        <IconButton onClick={handleRightClick} sx={{ color: '#f1f5f9' }}>
+          <ArrowCircleRightIcon />
+        </IconButton>
+        <div className="col-span-2 flex justify-center">
+          <IconButton onClick={handleDownClick} sx={{ color: '#f1f5f9' }}>
+            <ArrowCircleDownIcon />
+          </IconButton>
+        </div>
+      </div>
+
       {isModalOpen && currentImage && (
         <>
           <div className="fixed inset-0 bg-black opacity-50 z-40" />
@@ -66,7 +124,7 @@ const MapLayout = ({ images }: { images: Images[] }) => {
           </div>
         </>
       )}
-      <Map onClick={handleClick} />
+      <Map onClick={handleClick} ref={mapRef}/>
     </div>
   );
 };
