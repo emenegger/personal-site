@@ -3,7 +3,8 @@ import { select, geoPath, geoEqualEarth, zoom, zoomIdentity } from "d3";
 import { forwardRef, useEffect, useImperativeHandle, useRef } from "react";
 import * as topojson from "topojson-client";
 import { visitedCountries } from "./countries";
-import { colors, mediumGrays } from "./colors";
+import { colors, createHeatmapScale, mediumGrays } from "./colors";
+import { LocationHeatPoint } from "./util";
 
 const getCountryData = (d) =>
   visitedCountries.find((country) => country.id === d.id) ??
@@ -24,13 +25,14 @@ export interface MapRef {
 
 interface MapProps {
   onClick: (id: string | null) => void;
+  heatPoints: LocationHeatPoint[];
 }
 
-const Map = forwardRef<MapRef, MapProps>(({ onClick }, ref) => {
+const Map = forwardRef<MapRef, MapProps>(({ onClick, heatPoints }, ref) => {
   const svgRef = useRef<SVGSVGElement>(null);
   const zoomBehaviorRef = useRef<any>(null);
   const svgSelectionRef = useRef<any>(null);
-  const isCurrent = svgSelectionRef.current && zoomBehaviorRef.current
+  const isCurrent = svgSelectionRef.current && zoomBehaviorRef.current;
 
   useImperativeHandle(ref, () => ({
     zoomIn: () => {
@@ -97,6 +99,9 @@ const Map = forwardRef<MapRef, MapProps>(({ onClick }, ref) => {
     const container = svgRef.current.parentElement;
     const width = container?.clientWidth ?? 0;
     const height = container?.clientHeight || (width ?? 0) * 0.625;
+
+    const maxCount = Math.max(...heatPoints.map((p) => p.count), 1);
+    const heatScale = createHeatmapScale(maxCount);
 
     const svg = select(svgRef.current)
       .attr("viewBox", [0, 0, width, height])
@@ -169,6 +174,25 @@ const Map = forwardRef<MapRef, MapProps>(({ onClick }, ref) => {
     feMerge.append("feMergeNode");
     feMerge.append("feMergeNode").attr("in", "SourceGraphic");
 
+    const glowFilter = defs
+      .append("filter")
+      .attr("id", "glow-effect")
+      .attr("x", "-50%")
+      .attr("y", "-50%")
+      .attr("width", "200%")
+      .attr("height", "200%");
+
+    glowFilter
+      .append("feGaussianBlur")
+      .attr("stdDeviation", "8")
+      .attr("result", "coloredBlur");
+
+    const feMergeGlow = glowFilter.append("feMerge"); // Changed variable name
+    feMergeGlow.append("feMergeNode").attr("in", "coloredBlur");
+    feMergeGlow.append("feMergeNode").attr("in", "coloredBlur");
+    feMergeGlow.append("feMergeNode").attr("in", "coloredBlur");
+    feMergeGlow.append("feMergeNode").attr("in", "SourceGraphic");
+
     fetch("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json")
       .then((response) => response.json())
       .then((world) => {
@@ -179,19 +203,24 @@ const Map = forwardRef<MapRef, MapProps>(({ onClick }, ref) => {
 
         const countries = topojson.feature(world, world.objects.countries);
 
+        countries.features.forEach((country) => {
+          defs
+            .append("clipPath")
+            .attr("id", `clip-country-${country.id}`)
+            .append("path")
+            .attr("d", path(country));
+        });
+
         g.append("g")
           .selectAll("path")
           .data(countries.features)
           .join("path")
           .attr("d", path)
-          .attr("fill", (d) => {
-            const visitedColor = visitedCountries.find(
-              (ele) => ele.id === d.id
-            )?.color;
-            const fillColor = visitedColor ?? getUnvisitedColor();
-            return fillColor;
+          .attr("stroke", (d) => {
+            const isVisited = visitedCountries.some((ele) => ele.id === d.id);
+            const fillColor = '#FFB84D';
+            return isVisited ? fillColor : 'none';
           })
-          .attr("stroke", "none")
           .attr("stroke-width", 0.5)
           .on("mouseover", function (_e, d) {
             const isVisited = visitedCountries.some((ele) => ele.id === d.id);
@@ -209,22 +238,76 @@ const Map = forwardRef<MapRef, MapProps>(({ onClick }, ref) => {
             onClick(d.id);
           });
 
-        g.append("g")
-          .attr("class", "pins")
-          .selectAll("use")
-          .data(
-            countries.features.filter((d) => {
-              const countryData = getCountryData(d);
-              return countryData && countryData.color;
-            })
+        heatPoints.forEach((point, index) => {
+          const gradient = defs
+            .append("radialGradient")
+            .attr("id", `outer-glow-gradient-${index}`);
+
+          const coreColor = heatScale.getCoreColor(point.count);
+
+          gradient
+            .append("stop")
+            .attr("offset", "0%")
+            .attr("stop-color", coreColor)
+            .attr("stop-opacity", 0.4);
+
+          gradient
+            .append("stop")
+            .attr("offset", "10%")
+            .attr("stop-color", coreColor)
+            .attr("stop-opacity", 0.15);
+
+          gradient
+            .append("stop")
+            .attr("offset", "100%")
+            .attr("stop-color", coreColor)
+            .attr("stop-opacity", 0);
+        });
+
+        const heatGroup = g.append("g").attr("class", "heatmap-glow");
+        heatGroup
+          .selectAll(".outer-glow")
+          .data(heatPoints)
+          .join("circle")
+          .attr("class", "outer-glow")
+          .attr("cx", (d) => projection(d.coordinates)?.[0] ?? 0)
+          .attr("cy", (d) => projection(d.coordinates)?.[1] ?? 0)
+          .attr("r", (d) => heatScale.getGlowRadius(d.count))
+          .attr("fill", (d, i) => `url(#outer-glow-gradient-${i})`)
+          .attr(
+            "clip-path",
+            (d) => `url(#clip-country-${d.photos[0].countryId})`
           )
-          .join("use")
-          .attr("href", "#location-pin")
-          .attr("width", 24)
-          .attr("height", 24)
-          .attr("x", (d) => path.centroid(d)[0] - 12)
-          .attr("y", (d) => path.centroid(d)[1] - 24)
+          .style("filter", "url(#glow-effect)")
           .style("pointer-events", "none");
+
+        heatGroup
+          .selectAll(".core-bright")
+          .data(heatPoints)
+          .join("circle")
+          .attr("class", "core-bright")
+          .attr("cx", (d) => projection(d.coordinates)?.[0] ?? 0)
+          .attr("cy", (d) => projection(d.coordinates)?.[1] ?? 0)
+          .attr("r", (d) => heatScale.getCoreRadius(d.count))
+          .attr("fill", (d) => heatScale.getCoreColor(d.count))
+          .attr("opacity", 1)
+          .style("cursor", "pointer")
+          .on("click", function (event, d) {
+            event.stopPropagation();
+            onClick(d.photos[0].countryId);
+          })
+          .on("mouseover", function (_e, d) {
+            select(this)
+              .transition()
+              .duration(200)
+              .attr("r", heatScale.getCoreRadius(d.count) * 3.5);
+          })
+          .on("mouseout", function (_e, d) {
+            select(this)
+              .transition()
+              .duration(200)
+              .attr("r", heatScale.getCoreRadius(d.count));
+          });
       })
 
       .catch((error) => console.error("Error loading map:", error));

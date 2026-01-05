@@ -208,7 +208,7 @@ export const images3: Images[] = [
     date: "04/24/2024",
     src: laPaz,
     stampSrc: boliviaPassportStamp,
-    alt: "salar de uyuni",
+    alt: "la paz",
     id: 14,
     countryId: "068",
     coordinates: [-67.765335, -20.102586],

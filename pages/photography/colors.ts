@@ -23,41 +23,41 @@ export const UNVISITED_COLORS = [
 ] as const;
 
 export const thermographicColors = [
-  '#1a1f4d', // Dark navy blue (coolest - northern regions)
-  '#2d5a8c', // Deep blue
-  '#3d9bc9', // Bright cyan/turquoise
-  '#5bc9d4', // Light cyan
-  '#80d65f', // Bright green
-  '#c4d946', // Yellow-green
-  '#f5d333', // Bright yellow
-  '#f8a72b', // Orange-yellow
-  '#f57328', // Orange
-  '#e84524', // Red-orange (hottest - equatorial regions)
+  "#1a1f4d", // Dark navy blue (coolest - northern regions)
+  "#2d5a8c", // Deep blue
+  "#3d9bc9", // Bright cyan/turquoise
+  "#5bc9d4", // Light cyan
+  "#80d65f", // Bright green
+  "#c4d946", // Yellow-green
+  "#f5d333", // Bright yellow
+  "#f8a72b", // Orange-yellow
+  "#f57328", // Orange
+  "#e84524", // Red-orange (hottest - equatorial regions)
 ];
 
 export const mediumGrays = [
-  '#5a6171', // Slightly darker than gray-500
-  '#6b7280', // gray-500
-  '#838a97', // Between gray-500 and gray-400
-  '#9ca3af', // gray-400
-  '#b7bcc5', // Between gray-400 and gray-300
-  '#d1d5db', // gray-300
+  "#5a6171", // Slightly darker than gray-500
+  "#6b7280", // gray-500
+  "#838a97", // Between gray-500 and gray-400
+  "#9ca3af", // gray-400
+  "#b7bcc5", // Between gray-400 and gray-300
+  "#d1d5db", // gray-300
 ];
 
 export const amberShades = [
-  '#fffef7',  // Lightest
-  '#fffdf3',  // Lighter  
-  '#fffbeb',  // Base (original)
-  '#fff8e3',  // Darker
-  '#fff5db',  // Darkest
+  "#fffef7", // Lightest
+  "#fffdf3", // Lighter
+  "#fffbeb", // Base (original)
+  "#fff8e3", // Darker
+  "#fff5db", // Darkest
 ];
 
 export const darkGrays = [
-  '#4b5563',  // gray-600
-  '#374151',  // gray-700
-  '#1f2937',  // gray-800
-  '#111827',  // gray-900
-  '#030712',  // gray-950
+  "#4b5563", // gray-600
+  "#374151", // gray-700
+  "#1f2937", // gray-800
+  "#111827", // gray-900
+  "#030712", // gray-950
 ];
 
 export const vintageColors = {
@@ -73,11 +73,58 @@ export const colors = {
   accent1: "#2EA6A6",
   border: "#F2DEC4",
   accent2: "#D9631E",
-  background: '#374151',
+  background: "#374151",
   notVisited2: "#D3D9C1",
-  visitedHover: '#66BB6A',
+  visitedHover: "#66BB6A",
 } as const;
 
+// colors.ts
+export const createHeatmapScale = (maxCount: number) => {
+  return {
+    // Core radius - small and bright
+    getCoreRadius: (count: number) => {
+      const minRadius = 0.5;
+      const maxRadius = 2; // Keep core small
+      const normalized = Math.sqrt(count / maxCount);
+      return minRadius + (normalized * (maxRadius - minRadius));
+    },
+    
+    // Glow radius - large and subtle
+    getGlowRadius: (count: number) => {
+      const minRadius = 20;
+      const maxRadius = 75; // Much larger for subtle spread
+      const normalized = Math.sqrt(count / maxCount);
+      return minRadius + (normalized * (maxRadius - minRadius));
+    },
+    
+    // Bright, saturated color for the core
+    getCoreColor: (count: number) => {
+      const intensity = count / maxCount;
+      
+      if (intensity < 0.3) {
+        return '#FFE156'; // Bright yellow
+      } else if (intensity < 0.6) {
+        return '#FFB84D'; // Golden
+      } else {
+        return '#FF8C42'; // Bright orange
+      }
+    },
+    
+    // Softer color for the glow
+    getGlowColor: (count: number) => {
+      const intensity = count / maxCount;
+      
+      // Dimmer, more subtle version
+      if (intensity < 0.3) {
+        return 'rgba(255, 225, 86, 0.15)'; // Very transparent yellow
+      } else if (intensity < 0.6) {
+        return 'rgba(255, 184, 77, 0.2)'; // Subtle golden
+      } else {
+        return 'rgba(255, 140, 66, 0.25)'; // Subtle orange
+      }
+    }
+  };
+};
 
 /*
 type CreateGradient = {
