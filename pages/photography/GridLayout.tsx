@@ -1,5 +1,5 @@
 import React from "react";
-import { Images } from "../../images/images";
+import { Images } from "./images";
 import ImageCard from "./ImageCard";
 
 const GridLayout = ({ images }: { images: Images[] }) => {
@@ -17,6 +17,7 @@ const GridLayout = ({ images }: { images: Images[] }) => {
             id,
             countryId,
             orientation,
+            coordinates,
           }) => (
             <div>
               <ImageCard
@@ -29,6 +30,7 @@ const GridLayout = ({ images }: { images: Images[] }) => {
                 alt={alt}
                 id={id}
                 countryId={countryId}
+                coordinates={coordinates}
               />
             </div>
           )

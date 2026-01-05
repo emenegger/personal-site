@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo, useState } from "react";
-import { Images } from "../../images/images";
+import { Images } from "./images";
 import ImageCard from "./ImageCard";
 import ImageWrapper from "./ImageWrapper";
 
@@ -45,6 +45,7 @@ const CarouselLayout = ({ images }: { images: Images[] }) => {
               id,
               countryId,
               orientation,
+              coordinates
             },
             index
           ) => (
@@ -63,6 +64,7 @@ const CarouselLayout = ({ images }: { images: Images[] }) => {
                 alt={alt}
                 id={id}
                 countryId={countryId}
+                coordinates={coordinates}
               />
             </ImageWrapper>
           )

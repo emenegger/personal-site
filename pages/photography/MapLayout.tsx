@@ -1,10 +1,10 @@
 "use strict";
-import { Images, images3 } from "../../images/images";
+import { Images, images3 } from "./images";
 import ImageCard from "./ImageCard";
 import Map, { MapRef } from "./Map";
 import { useCallback, useRef, useState } from "react";
 import { colors } from "./colors";
-import { IconButton } from "@mui/material";
+import IconButton  from "@mui/material/IconButton";
 import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
 import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
 import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
@@ -22,29 +22,12 @@ const MapLayout = ({ images }: { images: Images[] }) => {
     setCurrentPhotoId(id);
   }, []);
 
-  const handleUpClick = useCallback(() => {
-    mapRef.current?.panUp();
-  }, []);
-
-  const handleDownClick = useCallback(() => {
-    mapRef.current?.panDown();
-  }, []);
-
-  const handleLeftClick = useCallback(() => {
-    mapRef.current?.panLeft();
-  }, []);
-
-  const handleRightClick = useCallback(() => {
-    mapRef.current?.panRight();
-  }, []);
-
-  const handleZoomInClick = useCallback(() => {
-    mapRef.current?.zoomIn();
-  }, []);
-
-  const handleZoomOutClick = useCallback(() => {
-    mapRef.current?.zoomOut();
-  }, []);
+  const handleUpClick = useCallback(() => mapRef.current?.panUp(), []);
+  const handleDownClick = useCallback(() => mapRef.current?.panDown(), []);
+  const handleLeftClick = useCallback(() => mapRef.current?.panLeft(), []);
+  const handleRightClick = useCallback(() => mapRef.current?.panRight(), []);
+  const handleZoomInClick = useCallback(() => mapRef.current?.zoomIn(), []);
+  const handleZoomOutClick = useCallback(() => mapRef.current?.zoomOut(), []);
 
   const currentImage = images.find((ele) => ele.countryId == currentPhotoId);
   const {
@@ -57,45 +40,43 @@ const MapLayout = ({ images }: { images: Images[] }) => {
     alt,
     id,
     countryId,
+    coordinates
   } = currentImage ?? {};
 
   return (
     <div
-      className="relative min-h-screen bg-[#e5e7eb] p-30"
+      className="relative min-h-screen p-8"
       style={{ backgroundColor: colors.background }}
     >
       <div className="font-mono flex flex-col md:flex-col justify-center items-center text-center text-[#F5F5DC]">
-        <h1
-          className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl px-2"
-          style={{
-            textShadow: "3px 3px 0px #4A4A4A, 6px 6px 0px #2A2A2A",
-          }}
-        >
+        <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl px-2 text-slate-100">
           photography across the world
         </h1>
-        <p className="text-sm md:text-lg px-2">click a country to see more</p>
+        <p className="text-sm md:text-lg px-2 text-slate-100">
+          click a country to see more
+        </p>
       </div>
 
       <div className="absolute top-20 right-6 grid grid-cols-2 gap-0 z-30">
-        <IconButton onClick={handleZoomInClick} sx={{ color: '#f1f5f9' }}>
+        <IconButton onClick={handleZoomInClick} sx={{ color: "#f1f5f9" }}>
           <ZoomInIcon />
         </IconButton>
-        <IconButton onClick={handleZoomOutClick} sx={{ color: '#f1f5f9' }}>
+        <IconButton onClick={handleZoomOutClick} sx={{ color: "#f1f5f9" }}>
           <ZoomOutIcon />
         </IconButton>
         <div className="col-span-2 flex justify-center">
-          <IconButton onClick={handleUpClick} sx={{ color: '#f1f5f9' }}>
+          <IconButton onClick={handleUpClick} sx={{ color: "#f1f5f9" }}>
             <ArrowCircleUpIcon />
           </IconButton>
         </div>
-        <IconButton onClick={handleLeftClick} sx={{ color: '#f1f5f9' }}>
+        <IconButton onClick={handleLeftClick} sx={{ color: "#f1f5f9" }}>
           <ArrowCircleLeftIcon />
         </IconButton>
-        <IconButton onClick={handleRightClick} sx={{ color: '#f1f5f9' }}>
+        <IconButton onClick={handleRightClick} sx={{ color: "#f1f5f9" }}>
           <ArrowCircleRightIcon />
         </IconButton>
         <div className="col-span-2 flex justify-center">
-          <IconButton onClick={handleDownClick} sx={{ color: '#f1f5f9' }}>
+          <IconButton onClick={handleDownClick} sx={{ color: "#f1f5f9" }}>
             <ArrowCircleDownIcon />
           </IconButton>
         </div>
@@ -118,13 +99,14 @@ const MapLayout = ({ images }: { images: Images[] }) => {
                 id={id}
                 countryId={countryId}
                 onClick={handleClick}
+                coordinates={coordinates}
                 showCloseButton
               />
             </div>
           </div>
         </>
       )}
-      <Map onClick={handleClick} ref={mapRef}/>
+      <Map onClick={handleClick} ref={mapRef} />
     </div>
   );
 };

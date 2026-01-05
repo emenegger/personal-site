@@ -1,4 +1,4 @@
-import { Images, images3 } from "../images/images";
+import { Images, images3 } from "./photography/images";
 import { useCallback, useState } from "react";
 import { CarouselLayout, GridLayout, MapLayout, LayoutText } from './photography/index';
 

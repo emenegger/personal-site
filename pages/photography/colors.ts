@@ -44,6 +44,22 @@ export const mediumGrays = [
   '#d1d5db', // gray-300
 ];
 
+export const amberShades = [
+  '#fffef7',  // Lightest
+  '#fffdf3',  // Lighter  
+  '#fffbeb',  // Base (original)
+  '#fff8e3',  // Darker
+  '#fff5db',  // Darkest
+];
+
+export const darkGrays = [
+  '#4b5563',  // gray-600
+  '#374151',  // gray-700
+  '#1f2937',  // gray-800
+  '#111827',  // gray-900
+  '#030712',  // gray-950
+];
+
 export const vintageColors = {
   green: "#838448",
   blue: "#7a8e82",
@@ -57,8 +73,6 @@ export const colors = {
   accent1: "#2EA6A6",
   border: "#F2DEC4",
   accent2: "#D9631E",
-  // background: "#4A7C89",
-  // background: '#e5e7eb',
   background: '#374151',
   notVisited2: "#D3D9C1",
   visitedHover: '#66BB6A',

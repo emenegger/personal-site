@@ -19,11 +19,16 @@ import {
   petersburg,
   russiaPassportStamp,
   thailand,
-} from "../public/images";
+} from "../../public/images";
 
 export interface Images {
   location: string | undefined;
-  camera: "canon eos 650" | "nikon d750" | "nikon d7500" | 'unknown' | undefined;
+  camera:
+    | "canon eos 650"
+    | "nikon d750"
+    | "nikon d7500"
+    | "unknown"
+    | undefined;
   date: string | undefined;
   src: StaticImageData | undefined;
   stampSrc: StaticImageData | undefined;
@@ -31,6 +36,7 @@ export interface Images {
   alt: string | undefined;
   id: number | undefined;
   countryId: string | undefined;
+  coordinates: [lon: number, lat: number] | undefined; 
 }
 
 export const images3: Images[] = [
@@ -44,6 +50,7 @@ export const images3: Images[] = [
     alt: "nerja beach",
     id: 1,
     countryId: "724",
+    coordinates: [-3.868422, 36.749495],
   },
   {
     location: "progresso, mexico",
@@ -55,6 +62,7 @@ export const images3: Images[] = [
     alt: "progresso dino",
     id: 2,
     countryId: "484",
+    coordinates: [-89.655851, 21.288643],
   },
   {
     location: "malaga, spain",
@@ -66,6 +74,7 @@ export const images3: Images[] = [
     alt: "malagaPark",
     id: 3,
     countryId: "724",
+    coordinates: [-4.416854, 36.71837],
   },
   {
     location: "paris, france",
@@ -77,6 +86,7 @@ export const images3: Images[] = [
     alt: "eiffel tower",
     id: 4,
     countryId: "250",
+    coordinates: [2.293333, 48.859189],
   },
   {
     location: "olympia, washington",
@@ -88,6 +98,7 @@ export const images3: Images[] = [
     alt: "pnw lake",
     id: 5,
     countryId: "840",
+    coordinates: [-122.909858, 47.03037],
   },
   {
     location: "torres del paine, chile",
@@ -99,6 +110,7 @@ export const images3: Images[] = [
     alt: "tdp lake",
     id: 6,
     countryId: "152",
+    coordinates: [-72.990258, -50.948319],
   },
   {
     location: "salar de uyuni, bolivia",
@@ -110,10 +122,11 @@ export const images3: Images[] = [
     alt: "salar de uyuni",
     id: 7,
     countryId: "068",
+    coordinates: [-67.765335, -20.102586],
   },
   {
     location: "berlin, germany",
-    camera: 'nikon d750',
+    camera: "nikon d750",
     orientation: "landscape",
     date: "10/2/2025", // update date
     src: evanInBerlin,
@@ -121,10 +134,11 @@ export const images3: Images[] = [
     alt: "evan in berlin",
     id: 8,
     countryId: "276",
+    coordinates: [13.439584, 52.487216],
   },
   {
     location: "tayrona, colombia",
-    camera: 'nikon d7500',
+    camera: "nikon d7500",
     orientation: "landscape",
     date: "10/2/2025", // update date
     src: colombia,
@@ -132,28 +146,31 @@ export const images3: Images[] = [
     alt: "tayrona",
     id: 9,
     countryId: "170",
+    coordinates: [-74.076313, 11.316167],
   },
   {
     location: "saint petersburg, russia",
-    camera: 'unknown',
+    camera: "unknown",
     orientation: "landscape",
-    date: "03/02/2012", 
+    date: "03/02/2012",
     src: petersburg,
     stampSrc: russiaPassportStamp,
     alt: "petersburg",
     id: 10,
     countryId: "643",
+    coordinates: [30.316997, 59.90952],
   },
   {
     location: "ko phi phi, thailand",
-    camera: 'unknown',
+    camera: "unknown",
     orientation: "landscape",
-    date: "07/05/2017", 
+    date: "07/05/2017",
     src: thailand,
     stampSrc: russiaPassportStamp,
     alt: "phi phi",
     id: 11,
     countryId: "764",
+    coordinates: [98.77125, 7.739207],
   },
 ];
 

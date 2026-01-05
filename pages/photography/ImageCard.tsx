@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Images } from "../../images/images";
+import { Images } from "./images";
 import { useCallback } from "react";
 import { placeholder } from "../../public/images";
 
