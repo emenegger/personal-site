@@ -30,6 +30,7 @@ import {
   guatemala,
   guatemalaPassportStamp,
   icelandPassportStamp,
+  nashville,
 } from "../../public/images";
 
 export interface Images {
@@ -277,8 +278,20 @@ export const images3: Images[] = [
     stampSrc: guatemalaPassportStamp,
     alt: "guatemala",
     id: 19,
-    countryId: "352",
+    countryId: "320",
     coordinates: [ -90.796766, 14.488878],
+  },
+  {
+    location: "nashville, tennesee",
+    camera: 'canon eos 650',
+    orientation: "landscape",
+    date: "05/09/2024",
+    src: nashville,
+    stampSrc: usPassportStamp,
+    alt: "nash",
+    id: 20,
+    countryId: "840",
+    coordinates: [-86.746411, 36.188267],
   },
 ];
 

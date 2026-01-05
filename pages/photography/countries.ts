@@ -148,6 +148,6 @@ export const visitedCountries: CountryData[] = [
     name: "Guatemala",
     visited: true,
     color: "n/a",
-    id: "352",
+    id: "320",
   },
 ];

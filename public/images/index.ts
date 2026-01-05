@@ -32,6 +32,7 @@ import icelandRock from './icelandRock.jpeg';
 import icelandPassportStamp from './iceland_passport_stamp.jpeg'
 import guatemala from './guatemala.jpeg';
 import guatemalaPassportStamp from './guatemala_passport_stamp.jpeg'
+import nashville from './nashville.jpeg'
 
 export {
   beach,
@@ -68,4 +69,5 @@ export {
   guatemala,
   guatemalaPassportStamp,
   icelandPassportStamp,
+  nashville,
 };
