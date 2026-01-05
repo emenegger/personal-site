@@ -19,6 +19,10 @@ import {
   petersburg,
   russiaPassportStamp,
   thailand,
+  zion,
+  maine,
+  boliviaPassportStamp,
+  laPaz,
 } from "../../public/images";
 
 export interface Images {
@@ -28,6 +32,7 @@ export interface Images {
     | "nikon d750"
     | "nikon d7500"
     | "unknown"
+    | "dji mini 2"
     | undefined;
   date: string | undefined;
   src: StaticImageData | undefined;
@@ -104,7 +109,7 @@ export const images3: Images[] = [
     location: "torres del paine, chile",
     camera: "nikon d7500",
     orientation: "landscape",
-    date: "10/2/2025", // update date
+    date: "12/01/2022",
     src: chileRainbow,
     stampSrc: chilePassportStamp,
     alt: "tdp lake",
@@ -118,7 +123,7 @@ export const images3: Images[] = [
     orientation: "landscape",
     date: "10/2/2025", // update date
     src: salurDeUyuni,
-    stampSrc: chilePassportStamp,
+    stampSrc: boliviaPassportStamp,
     alt: "salar de uyuni",
     id: 7,
     countryId: "068",
@@ -171,6 +176,42 @@ export const images3: Images[] = [
     id: 11,
     countryId: "764",
     coordinates: [98.77125, 7.739207],
+  },
+  {
+    location: "zion national park, utah",
+    camera: 'canon eos 650',
+    orientation: 'portrait',
+    date: "04/19/2025",
+    src: zion,
+    stampSrc: usPassportStamp,
+    alt: "zion",
+    id: 12,
+    countryId: "840",
+    coordinates: [-112.953987, 37.266807],
+  },
+  {
+    location: "union, maine",
+    camera: 'dji mini 2',
+    orientation: 'landscape',
+    date: "10/09/2021",
+    src: maine,
+    stampSrc: usPassportStamp,
+    alt: "maine",
+    id: 13,
+    countryId: "840",
+    coordinates: [-69.254181, 44.173768],
+  },
+  {
+    location: "la paz, bolivia",
+    camera: "canon eos 650",
+    orientation: "landscape",
+    date: "04/24/2024",
+    src: laPaz,
+    stampSrc: boliviaPassportStamp,
+    alt: "salar de uyuni",
+    id: 14,
+    countryId: "068",
+    coordinates: [-67.765335, -20.102586],
   },
 ];
 

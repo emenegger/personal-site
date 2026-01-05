@@ -3,10 +3,13 @@ import { Images } from "./images";
 import ImageCard from "./ImageCard";
 
 const GridLayout = ({ images }: { images: Images[] }) => {
+  const sortedImages = [...images].sort((a, b) => 
+  a.orientation === 'landscape' ? -1 : b.orientation === 'landscape' ? 1 : 0
+);
   return (
     <div className="relative min-h-screen w-screen bg-gray-300">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-        {images.map(
+        {sortedImages.map(
           ({
             src,
             stampSrc,

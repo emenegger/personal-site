@@ -20,7 +20,11 @@ import colombia from "./colombia.jpeg";
 import colombiaPassportStamp from "./colombia_passport_stamp.jpg";
 import petersburg from "./petersburg.jpg";
 import russiaPassportStamp from './russia_passport_stamp.png'
-import thailand from './thailand.jpg'
+import thailand from './thailand.jpg';
+import zion from './zion.jpeg';
+import maine from './maine.jpeg';
+import boliviaPassportStamp from './bolivia_passport_stamp.jpeg'
+import laPaz from './laPaz.jpeg'
 
 export {
   beach,
@@ -46,4 +50,8 @@ export {
   petersburg,
   russiaPassportStamp,
   thailand,
+  zion,
+  maine,
+  boliviaPassportStamp,
+  laPaz,
 };
