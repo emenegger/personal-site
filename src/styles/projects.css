@@ -1,10 +1,8 @@
-/* Container needed to position the overlay. Adjust the width as needed */
 .container {
   position: relative;
   width: 50%;
 }
 
-/* The overlay effect (full height and width) - lays on top of the container and over the image */
 .overlay {
   position: absolute;
   bottom: 0;
@@ -18,7 +16,6 @@
   transition: .3s ease;
 }
 
-/* When you mouse over the container, the overlay text will "zoom" in display */
 .container:hover .overlay {
   transform: scale(1);
 }

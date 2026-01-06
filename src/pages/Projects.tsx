@@ -1,7 +1,7 @@
 import Head from "next/head";
 import React from "react";
-import { cardContent } from "../public/cardContent";
-import ProjectSquare from "../components/ProjectSquare";
+import { cardContent } from "../../public/cardContent";
+import ProjectSquare from "../../components/ProjectSquare";
 
 const Projects = (props) => {
   // const { cardContent } = props;

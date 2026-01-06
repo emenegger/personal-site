@@ -1,6 +1,11 @@
-import "../styles/globals.css";
-import MainNavBar from "../components/MainNavbar";
-import { Major_Mono_Display, Inter, Bebas_Neue, Satisfy } from "next/font/google";
+import '../styles/globals.css'
+import { MainNavbar } from "@/features/home";
+import {
+  Major_Mono_Display,
+  Inter,
+  Bebas_Neue,
+  Satisfy,
+} from "next/font/google";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -27,9 +32,11 @@ const cursive = Satisfy({
 
 export default function App({ Component, pageProps }) {
   return (
-    <div className={`${inter.variable} ${majorMono.variable} ${travel.variable} ${cursive.variable} `}>
+    <div
+      className={`${inter.variable} ${majorMono.variable} ${travel.variable} ${cursive.variable} `}
+    >
       <div className={inter.className}>
-        <MainNavBar />
+        <MainNavbar />
         <Component {...pageProps} />
       </div>
     </div>

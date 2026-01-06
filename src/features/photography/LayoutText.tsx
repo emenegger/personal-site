@@ -1,4 +1,4 @@
-import { LayoutType } from "../Photography";
+import { LayoutType } from "../../pages/Photography";
 
 const colors = {
   active: "text-slate-100",

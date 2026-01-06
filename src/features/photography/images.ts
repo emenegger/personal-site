@@ -48,7 +48,7 @@ import {
   slovakiaPassportStamp,
   italy,
   italyPassportStamp,
-} from "../../public/images";
+} from "../../../public/images";
 
 export interface Images {
   location: string | undefined;

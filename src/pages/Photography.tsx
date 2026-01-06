@@ -1,8 +1,13 @@
-import { Images, images3 } from "./photography/images";
 import { useCallback, useState } from "react";
-import { CarouselLayout, GridLayout, MapLayout, LayoutText } from './photography/index';
-
-export type LayoutType = "map" | "grid" | "carousel";
+import {
+  CarouselLayout,
+  GridLayout,
+  MapLayout,
+  LayoutText,
+  type Images,
+  type LayoutType,
+  images3,
+} from "features/photography";
 
 const layouts: Record<string, LayoutType> = {
   map: "map",
