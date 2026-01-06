@@ -150,4 +150,16 @@ export const visitedCountries: CountryData[] = [
     color: "n/a",
     id: "320",
   },
+  {
+    name: "Peru",
+    visited: true,
+    color: "n/a",
+    id: "604",
+  },
+  {
+    name: "Slovakia",
+    visited: true,
+    color: "n/a",
+    id: "703",
+  },
 ];

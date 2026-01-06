@@ -40,6 +40,14 @@ import {
   badlands,
   costaRica2,
   costaPassportStamp,
+  peru,
+  peruPassportStamp,
+  hungary,
+  hungaryPassportStamp,
+  slovakia,
+  slovakiaPassportStamp,
+  italy,
+  italyPassportStamp,
 } from "../../public/images";
 
 export interface Images {
@@ -50,7 +58,8 @@ export interface Images {
     | "nikon d7500"
     | "unknown"
     | "dji mini 2"
-    | 'samsung galaxy s7'
+    | "samsung galaxy s7"
+    | "iphone 14"
     | undefined;
   date: string | undefined;
   src: StaticImageData | undefined;
@@ -281,7 +290,7 @@ export const images3: Images[] = [
   },
   {
     location: "alotenango, guatemala",
-    camera: "unknown",
+    camera: "iphone 14",
     orientation: "portrait",
     date: "05/30/2023",
     src: guatemala,
@@ -305,7 +314,7 @@ export const images3: Images[] = [
   },
   {
     location: "medellin, colombia",
-    camera: "unknown",
+    camera: "iphone 14",
     orientation: "landscape",
     date: "04/28/2024",
     src: medellin,
@@ -329,7 +338,7 @@ export const images3: Images[] = [
   },
   {
     location: "hanoi, vietnam",
-    camera: 'samsung galaxy s7',
+    camera: "samsung galaxy s7",
     orientation: "portrait",
     date: "07/02/2017",
     src: vietnam,
@@ -341,7 +350,7 @@ export const images3: Images[] = [
   },
   {
     location: "ha long bay, vietnam",
-    camera: 'samsung galaxy s7',
+    camera: "samsung galaxy s7",
     orientation: "landscape",
     date: "07/05/2017",
     src: haLongBay,
@@ -365,7 +374,7 @@ export const images3: Images[] = [
   },
   {
     location: "guanacaste province, costa rica",
-    camera: 'samsung galaxy s7',
+    camera: "samsung galaxy s7",
     orientation: "landscape",
     date: "05/15/2018",
     src: costaRica2,
@@ -374,6 +383,54 @@ export const images3: Images[] = [
     id: 26,
     countryId: "188",
     coordinates: [-84.982203, 10.547678],
+  },
+  {
+    location: "lima, peru",
+    camera: "iphone 14",
+    orientation: "portrait",
+    date: "04/18/2024",
+    src: peru,
+    stampSrc: peruPassportStamp,
+    alt: "lima",
+    id: 27,
+    countryId: "604",
+    coordinates: [-77.021758, -12.145482], 
+  },
+  {
+    location: "budapest, hungary",
+    camera: "samsung galaxy s7",
+    orientation: "landscape",
+    date: "07/10/2018",
+    src: hungary,
+    stampSrc: hungaryPassportStamp,
+    alt: "hungary",
+    id: 28,
+    countryId: "348",
+    coordinates: [19.048045, 47.486703],
+  },
+  {
+    location: "bratislava, slovakia",
+    camera: "samsung galaxy s7",
+    orientation: "landscape",
+    date: "07/11/2018",
+    src: slovakia,
+    stampSrc: slovakiaPassportStamp,
+    alt: "slovakia",
+    id: 29,
+    countryId: "703",
+    coordinates: [17.104057, 48.142089],
+  },
+  {
+    location: "florence, italy",
+    camera: "samsung galaxy s7",
+    orientation: "landscape",
+    date: "09/29/2019",
+    src: italy,
+    stampSrc: italyPassportStamp,
+    alt: "italy",
+    id: 30,
+    countryId: "380",
+    coordinates: [11.254825, 43.767886],
   },
 ];
 

@@ -42,6 +42,14 @@ import vietnamPassportStamp from "./vietnam_passport_stamp.png";
 import badlands from "./badlands.jpeg";
 import costaRica2 from "./costaRica2.jpg";
 import costaPassportStamp from "./costa_rica_passport_stamp.png";
+import peru from "./peru.jpeg";
+import peruPassportStamp from "./peru_passport_stamp.jpeg";
+import hungary from "./hungary.jpg";
+import hungaryPassportStamp from "./hungary_passport_stamp.jpeg";
+import slovakia from "./bratislava.jpg";
+import slovakiaPassportStamp from "./slovakia_passport_stamp.jpeg";
+import italy from "./italy.jpg";
+import italyPassportStamp from "./italy_passport_stamp.jpeg";
 
 export {
   beach,
@@ -88,4 +96,12 @@ export {
   badlands,
   costaRica2,
   costaPassportStamp,
+  peru,
+  peruPassportStamp,
+  hungary,
+  hungaryPassportStamp,
+  slovakia,
+  slovakiaPassportStamp,
+  italy,
+  italyPassportStamp
 };
