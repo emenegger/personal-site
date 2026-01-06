@@ -5,7 +5,8 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import EmailIcon from "@mui/icons-material/Email";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import InsertInvitationIcon from "@mui/icons-material/InsertInvitation";
-import evanInBeanie from "/Users/evanemenegger/Desktop/Projects/personal-website/public/DSC_7882-2.jpg"
+import evanInBeanie from "/Users/evanemenegger/Desktop/Projects/personal-website/public/DSC_7882-2.jpg";
+import { ContactPage } from "features/contact";
 
 const contactInfo = [
   {
@@ -35,17 +36,6 @@ const contactInfo = [
   },
 ];
 
-// const contactRows = contactInfo.map((ele) => {
-//   return (
-//     <Row key={ele.handle}>
-//       <Link href={ele.link}>{ele.icon}</Link>
-//       <Text h4 weight="thin" css={{ paddingLeft: "5px" }}>
-//         {ele.handle}
-//       </Text>
-//     </Row>
-//   );
-// });
-
 const Contact = () => {
   return (
     <>
@@ -55,31 +45,7 @@ const Contact = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {/* <Row justify="center">
-        <Text h1 weight="bold">
-          Contact
-        </Text>
-      </Row>
-      <Grid.Container justify="center">
-        <Grid xs={8} xl={4}>
-          <Image
-            showSkeleton
-            width="100%"
-            height={600}
-            maxDelay={10000}
-            objectFit="cover"
-            src={evanInBeanie.src}
-            alt="Evan Emenegger"
-            autoResize
-          />
-        </Grid>
-        <Grid>
-          <Container>
-            <Text h2>Evan Emenegger</Text>
-            {contactRows}
-          </Container>
-        </Grid>
-      </Grid.Container> */}
+      <ContactPage />
     </>
   );
 };
