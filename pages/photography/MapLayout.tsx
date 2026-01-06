@@ -12,6 +12,7 @@ import ArrowCircleDownIcon from "@mui/icons-material/ArrowCircleDown";
 import ZoomInIcon from "@mui/icons-material/ZoomIn";
 import ZoomOutIcon from "@mui/icons-material/ZoomOut";
 import { aggregatePhotosByLocation } from "./util";
+import CarouselLayout from "./CarouselLayout";
 
 const MapLayout = ({ images }: { images: Images[] }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -43,6 +44,10 @@ const MapLayout = ({ images }: { images: Images[] }) => {
     countryId,
     coordinates
   } = currentImage ?? {};
+
+  const currentImages = images.filter(ele => ele.countryId === currentPhotoId);
+
+  console.log('*** currentImages', images.filter(ele => ele.countryId === currentPhotoId))
 
   const heatPoints = aggregatePhotosByLocation(images); 
 
@@ -105,6 +110,7 @@ const MapLayout = ({ images }: { images: Images[] }) => {
                 coordinates={coordinates}
                 showCloseButton
               />
+              {/* <CarouselLayout images={currentImages} /> // implement this tomorrow */}
             </div>
           </div>
         </>

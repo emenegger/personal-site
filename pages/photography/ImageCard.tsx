@@ -52,13 +52,13 @@ const ImageCard = ({
           <p>camera: {camera}</p>
           <p>date: {date}</p>
         </div>
-        <div className="max-w-48 h-auto w-20 md:w-40 flex align-center">
+        <div className="max-w-48 h-12 w-auto md:h-20 flex align-center px-1">
           <Image
             src={stampSrc}
             alt="stamp"
             width={200}
             height={150}
-            className="rounded-2xl w-full h-auto object-contain opacity-50 shadow-l"
+            className="rounded-1xl md:rounded-2xl w-full h-auto object-contain opacity-50 shadow-l"
           />
         </div>
       </div>

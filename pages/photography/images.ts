@@ -31,6 +31,8 @@ import {
   guatemalaPassportStamp,
   icelandPassportStamp,
   nashville,
+  medellin,
+  thailandPassportStamp,
 } from "../../public/images";
 
 export interface Images {
@@ -179,7 +181,7 @@ export const images3: Images[] = [
     orientation: "landscape",
     date: "07/05/2017",
     src: thailand,
-    stampSrc: russiaPassportStamp,
+    stampSrc: thailandPassportStamp,
     alt: "phi phi",
     id: 11,
     countryId: "764",
@@ -292,6 +294,18 @@ export const images3: Images[] = [
     id: 20,
     countryId: "840",
     coordinates: [-86.746411, 36.188267],
+  },
+  {
+    location: "medellin, colombia",
+    camera: "unknown",
+    orientation: "landscape",
+    date: "04/28/2024",
+    src: medellin,
+    stampSrc: colombiaPassportStamp,
+    alt: "medellin",
+    id: 21,
+    countryId: "170",
+    coordinates: [-75.589971, 6.255971],
   },
 ];
 

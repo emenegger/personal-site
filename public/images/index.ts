@@ -19,20 +19,22 @@ import germanyPassportStamp from "./germany_passport_stamp.jpg";
 import colombia from "./colombia.jpeg";
 import colombiaPassportStamp from "./colombia_passport_stamp.jpg";
 import petersburg from "./petersburg.jpg";
-import russiaPassportStamp from './russia_passport_stamp.png'
-import thailand from './thailand.jpg';
-import zion from './zion.jpeg';
-import maine from './maine.jpeg';
-import boliviaPassportStamp from './bolivia_passport_stamp.jpeg'
-import laPaz from './laPaz.jpeg';
-import meridaHacienda from './meridaHacienda.jpeg';
-import cdmxBookstore from './cdmxBookstore.jpg';
-import escondido from './escondido.jpeg';
-import icelandRock from './icelandRock.jpeg';
-import icelandPassportStamp from './iceland_passport_stamp.jpeg'
-import guatemala from './guatemala.jpeg';
-import guatemalaPassportStamp from './guatemala_passport_stamp.jpeg'
-import nashville from './nashville.jpeg'
+import russiaPassportStamp from "./russia_passport_stamp.png";
+import thailand from "./thailand.jpg";
+import zion from "./zion.jpeg";
+import maine from "./maine.jpeg";
+import boliviaPassportStamp from "./bolivia_passport_stamp.jpeg";
+import laPaz from "./laPaz.jpeg";
+import meridaHacienda from "./meridaHacienda.jpeg";
+import cdmxBookstore from "./cdmxBookstore.jpg";
+import escondido from "./escondido.jpeg";
+import icelandRock from "./icelandRock.jpeg";
+import icelandPassportStamp from "./iceland_passport_stamp.jpeg";
+import guatemala from "./guatemala.jpeg";
+import guatemalaPassportStamp from "./guatemala_passport_stamp.jpeg";
+import nashville from "./nashville.jpeg";
+import medellin from "./medellin.jpeg";
+import thailandPassportStamp from './thailand_passport_stamp.jpg'
 
 export {
   beach,
@@ -58,6 +60,7 @@ export {
   petersburg,
   russiaPassportStamp,
   thailand,
+  thailandPassportStamp,
   zion,
   maine,
   boliviaPassportStamp,
@@ -70,4 +73,5 @@ export {
   guatemalaPassportStamp,
   icelandPassportStamp,
   nashville,
+  medellin,
 };
