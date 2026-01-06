@@ -33,6 +33,10 @@ import {
   nashville,
   medellin,
   thailandPassportStamp,
+  upstateNY,
+  vietnam,
+  vietnamPassportStamp,
+  haLongBay,
 } from "../../public/images";
 
 export interface Images {
@@ -306,6 +310,42 @@ export const images3: Images[] = [
     id: 21,
     countryId: "170",
     coordinates: [-75.589971, 6.255971],
+  },
+  {
+    location: "beacon, new york",
+    camera: 'canon eos 650',
+    orientation: "landscape",
+    date: "10/25/2024",
+    src: upstateNY,
+    stampSrc: usPassportStamp,
+    alt: "beacon",
+    id: 22,
+    countryId: "840",
+    coordinates: [-73.950746, 41.489961],
+  },
+  {
+    location: "hanoi, vietnam",
+    camera: 'unknown',
+    orientation: "portrait",
+    date: "07/02/2017",
+    src: vietnam,
+    stampSrc: vietnamPassportStamp,
+    alt: "vietnam",
+    id: 23,
+    countryId: "704",
+    coordinates: [105.849924, 21.034195],
+  },
+  {
+    location: "ha long bay, vietnam",
+    camera: 'unknown',
+    orientation: "landscape",
+    date: "07/05/2017",
+    src: haLongBay,
+    stampSrc: vietnamPassportStamp,
+    alt: "ha long bay",
+    id: 24,
+    countryId: "704",
+    coordinates: [107.028774, 21.006351],
   },
 ];
 

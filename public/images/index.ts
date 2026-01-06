@@ -35,6 +35,10 @@ import guatemalaPassportStamp from "./guatemala_passport_stamp.jpeg";
 import nashville from "./nashville.jpeg";
 import medellin from "./medellin.jpeg";
 import thailandPassportStamp from './thailand_passport_stamp.jpg'
+import upstateNY from "./upstateNY.jpeg";
+import vietnam from "./vietnam.jpg";
+import haLongBay from "./haLongBay.jpg";
+import vietnamPassportStamp from "./vietnam_passport_stamp.png";
 
 export {
   beach,
@@ -74,4 +78,8 @@ export {
   icelandPassportStamp,
   nashville,
   medellin,
+  upstateNY,
+  vietnam,
+  vietnamPassportStamp,
+  haLongBay
 };
