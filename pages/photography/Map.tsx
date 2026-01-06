@@ -3,15 +3,8 @@ import { select, geoPath, geoEqualEarth, zoom, zoomIdentity } from "d3";
 import { forwardRef, useEffect, useImperativeHandle, useRef } from "react";
 import * as topojson from "topojson-client";
 import { visitedCountries } from "./countries";
-import { colors, createHeatmapScale, heatMapColors, mediumGrays } from "./colors";
+import { colors, createHeatmapScale, heatMapColors } from "./colors";
 import { LocationHeatPoint } from "./util";
-
-const getCountryData = (d) =>
-  visitedCountries.find((country) => country.id === d.id) ??
-  visitedCountries.find((country) => country.name === d.properties.name);
-
-const getUnvisitedColor = () =>
-  mediumGrays[Math.floor(Math.random() * mediumGrays.length)];
 
 export interface MapRef {
   zoomIn: () => void;
@@ -155,23 +148,38 @@ const Map = forwardRef<MapRef, MapProps>(({ onClick, heatPoints }, ref) => {
     filter
       .append("feGaussianBlur")
       .attr("in", "SourceAlpha")
-      .attr("stdDeviation", 3);
+      .attr("stdDeviation", 3)
+      .attr("result", "blur");
+
+    filter
+      .append("feFlood")
+      .attr("flood-color", heatMapColors.orange)
+      .attr("flood-opacity", 0.5)
+      .attr("result", "color");
+
+    filter
+      .append("feComposite")
+      .attr("in", "color")
+      .attr("in2", "blur")
+      .attr("operator", "in")
+      .attr("result", "coloredBlur");
 
     filter
       .append("feOffset")
+      .attr("in", "coloredBlur")
       .attr("dx", 2)
       .attr("dy", 4)
       .attr("result", "offsetblur");
 
     filter
       .append("feComponentTransfer")
+      .attr("in", "offsetblur") 
       .append("feFuncA")
       .attr("type", "linear")
       .attr("slope", 0.5);
 
     const feMerge = filter.append("feMerge");
-
-    feMerge.append("feMergeNode");
+    feMerge.append("feMergeNode").attr("in", "offsetblur"); 
     feMerge.append("feMergeNode").attr("in", "SourceGraphic");
 
     const glowFilter = defs
@@ -218,13 +226,14 @@ const Map = forwardRef<MapRef, MapProps>(({ onClick, heatPoints }, ref) => {
           .attr("d", path)
           .attr("stroke", (d) => {
             const isVisited = visitedCountries.some((ele) => ele.id === d.id);
-            return isVisited ? heatMapColors.orange : 'none';
+            return isVisited ? heatMapColors.orange : "none";
           })
           .attr("stroke-width", 0.5)
           .on("mouseover", function (_e, d) {
             const isVisited = visitedCountries.some((ele) => ele.id === d.id);
             if (isVisited) {
               select(this).style("filter", "url(#elevation-shadow)").raise();
+              select(this).attr("stroke", heatMapColors.orange);
             }
           })
           .on("mouseout", function (_e, d) {
@@ -235,7 +244,7 @@ const Map = forwardRef<MapRef, MapProps>(({ onClick, heatPoints }, ref) => {
           })
           .on("click", function (_e, d) {
             onClick(d.id);
-            console.log('***', d)
+            console.log("***", d);
           });
 
         heatPoints.forEach((point, index) => {

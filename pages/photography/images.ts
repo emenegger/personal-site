@@ -37,6 +37,9 @@ import {
   vietnam,
   vietnamPassportStamp,
   haLongBay,
+  badlands,
+  costaRica2,
+  costaPassportStamp,
 } from "../../public/images";
 
 export interface Images {
@@ -47,6 +50,7 @@ export interface Images {
     | "nikon d7500"
     | "unknown"
     | "dji mini 2"
+    | 'samsung galaxy s7'
     | undefined;
   date: string | undefined;
   src: StaticImageData | undefined;
@@ -273,7 +277,7 @@ export const images3: Images[] = [
     alt: "rock",
     id: 18,
     countryId: "352",
-    coordinates: [-19.004850, 63.414944],
+    coordinates: [-19.00485, 63.414944],
   },
   {
     location: "alotenango, guatemala",
@@ -285,11 +289,11 @@ export const images3: Images[] = [
     alt: "guatemala",
     id: 19,
     countryId: "320",
-    coordinates: [ -90.796766, 14.488878],
+    coordinates: [-90.796766, 14.488878],
   },
   {
     location: "nashville, tennesee",
-    camera: 'canon eos 650',
+    camera: "canon eos 650",
     orientation: "landscape",
     date: "05/09/2024",
     src: nashville,
@@ -313,7 +317,7 @@ export const images3: Images[] = [
   },
   {
     location: "beacon, new york",
-    camera: 'canon eos 650',
+    camera: "canon eos 650",
     orientation: "landscape",
     date: "10/25/2024",
     src: upstateNY,
@@ -325,7 +329,7 @@ export const images3: Images[] = [
   },
   {
     location: "hanoi, vietnam",
-    camera: 'unknown',
+    camera: 'samsung galaxy s7',
     orientation: "portrait",
     date: "07/02/2017",
     src: vietnam,
@@ -337,7 +341,7 @@ export const images3: Images[] = [
   },
   {
     location: "ha long bay, vietnam",
-    camera: 'unknown',
+    camera: 'samsung galaxy s7',
     orientation: "landscape",
     date: "07/05/2017",
     src: haLongBay,
@@ -346,6 +350,30 @@ export const images3: Images[] = [
     id: 24,
     countryId: "704",
     coordinates: [107.028774, 21.006351],
+  },
+  {
+    location: "bad lands, south dakota",
+    camera: "nikon d750",
+    orientation: "landscape",
+    date: "08/25/2020",
+    src: badlands,
+    stampSrc: usPassportStamp,
+    alt: "badlands",
+    id: 25,
+    countryId: "840",
+    coordinates: [-102.317581, 43.849538],
+  },
+  {
+    location: "guanacaste province, costa rica",
+    camera: 'samsung galaxy s7',
+    orientation: "landscape",
+    date: "05/15/2018",
+    src: costaRica2,
+    stampSrc: costaPassportStamp,
+    alt: "rica",
+    id: 26,
+    countryId: "188",
+    coordinates: [-84.982203, 10.547678],
   },
 ];
 

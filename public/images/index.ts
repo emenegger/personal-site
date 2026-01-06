@@ -39,6 +39,9 @@ import upstateNY from "./upstateNY.jpeg";
 import vietnam from "./vietnam.jpg";
 import haLongBay from "./haLongBay.jpg";
 import vietnamPassportStamp from "./vietnam_passport_stamp.png";
+import badlands from "./badlands.jpeg";
+import costaRica2 from "./costaRica2.jpg";
+import costaPassportStamp from "./costa_rica_passport_stamp.png";
 
 export {
   beach,
@@ -81,5 +84,8 @@ export {
   upstateNY,
   vietnam,
   vietnamPassportStamp,
-  haLongBay
+  haLongBay,
+  badlands,
+  costaRica2,
+  costaPassportStamp,
 };
