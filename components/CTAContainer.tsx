@@ -10,7 +10,7 @@ const ulVariants: Variants = {
     opacity: 1,
     scale: 1,
     transition: {
-      delayChildren: 0.3,
+      delayChildren: 0.9,
       staggerChildren: 0.5,
     },
   },
