@@ -39,7 +39,23 @@
   min-width: 100vw;
   width: 100%;
   z-index: 2;
-  background-color: rgba(0, 0, 0, 0.15); /* make this dynamic on scroll */
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+.foregroundOverlay {
+  position: absolute;
+  height: 100vh;
+  min-width: 100vw;
+  width: 100%;
+  z-index: 4;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.5) 0%,
+    rgba(0, 0, 0, 0.3) 20%,
+    rgba(0, 0, 0, 0.1) 60%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  top: 0;
 }
 
 .ctaContainer {
@@ -47,6 +63,7 @@
   z-index: 3;
   top: 8vw;
   left: 0vw;
+  font-family: var(--font-major-mono);
   h1 {
     font-size: 11vh;
     line-height: 8vh;
@@ -100,11 +117,11 @@
 @media only screen and (min-width: 820px) {
   .ctaContainer {
     top: 4vw;
-    left: 3vw;
+    left: 10vw;
     display: flex;
     h1 {
-      font-size: 12rem;
-      line-height: 8rem;
+      font-size: 8rem;
+      line-height: 6rem;
     }
   }
   .animateTextArrayContainer {
@@ -119,11 +136,11 @@
 /* Laptop breakpoint. */
 @media only screen and (min-width: 1024px) {
   .ctaContainer {
-    top: 12vw;
+    top: 3vw;
     left: 1vw;
     .animateTextArrayText {
-      padding-right: 10px;
-      font-size: 13rem;
+      padding-right: 3rem;
+      font-size: 10rem;
     }
   }
   .animateTextArrayContainer {

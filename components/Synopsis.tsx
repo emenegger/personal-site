@@ -2,14 +2,11 @@ import { Variants } from "framer-motion";
 import AnimateTextArray from "./AnimateTextArray";
 import styles from "./Synopsis.module.scss";
 
-const synopsis =
-  "I'm a Software Engineer experienced in TypeScript and React passionate about front-end development, mentorship, problem-solving, and photography.";
-
 const synopsis2 = [
-  "Software Engineer.",
-  "Educator.",
-  "Photographer.",
-  "Basketball Fanatic.",
+  "software engineer",
+  "educator",
+  "photographer",
+  "basketball fanatic",
 ];
 
 const ulVariants: Variants = {

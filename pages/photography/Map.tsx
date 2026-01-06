@@ -2,7 +2,7 @@
 import { select, geoPath, geoEqualEarth, zoom, zoomIdentity } from "d3";
 import { forwardRef, useEffect, useImperativeHandle, useRef } from "react";
 import * as topojson from "topojson-client";
-import { visitedCountries } from "./countries";
+import { images3 } from "./images";
 import { colors, createHeatmapScale, heatMapColors } from "./colors";
 import { LocationHeatPoint } from "./util";
 
@@ -173,13 +173,13 @@ const Map = forwardRef<MapRef, MapProps>(({ onClick, heatPoints }, ref) => {
 
     filter
       .append("feComponentTransfer")
-      .attr("in", "offsetblur") 
+      .attr("in", "offsetblur")
       .append("feFuncA")
       .attr("type", "linear")
       .attr("slope", 0.5);
 
     const feMerge = filter.append("feMerge");
-    feMerge.append("feMergeNode").attr("in", "offsetblur"); 
+    feMerge.append("feMergeNode").attr("in", "offsetblur");
     feMerge.append("feMergeNode").attr("in", "SourceGraphic");
 
     const glowFilter = defs
@@ -225,19 +225,19 @@ const Map = forwardRef<MapRef, MapProps>(({ onClick, heatPoints }, ref) => {
           .join("path")
           .attr("d", path)
           .attr("stroke", (d) => {
-            const isVisited = visitedCountries.some((ele) => ele.id === d.id);
+            const isVisited = images3.some((ele) => ele.countryId === d.id);
             return isVisited ? heatMapColors.orange : "none";
           })
           .attr("stroke-width", 0.5)
           .on("mouseover", function (_e, d) {
-            const isVisited = visitedCountries.some((ele) => ele.id === d.id);
+            const isVisited = images3.some((ele) => ele.countryId === d.id);
             if (isVisited) {
               select(this).style("filter", "url(#elevation-shadow)").raise();
               select(this).attr("stroke", heatMapColors.orange);
             }
           })
           .on("mouseout", function (_e, d) {
-            const isVisited = visitedCountries.some((ele) => ele.id === d.id);
+            const isVisited = images3.some((ele) => ele.countryId === d.id);
             if (isVisited) {
               select(this).style("filter", null);
             }

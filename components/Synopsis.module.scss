@@ -2,6 +2,7 @@
   color: whitesmoke;
   margin-bottom: 0px;
   text-align: center;
+  font-family: var(--font-major-mono);
   h1 {
     font-size: large;
     margin-bottom: 0.25rem;
@@ -18,6 +19,10 @@
   h3 {
     color: white;
   }
+}
+
+.ctaContainer {
+  font-family: var(--font-major-mono);
 }
 
 /* Mobile landscape breakpoint. */

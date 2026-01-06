@@ -8,6 +8,7 @@ const Content = () => {
       <div className={styles.backgroundImage} />
       <div className={styles.backgroundOverlay} />
       <div className={styles.foregroundImage} />
+      <div className={styles.foregroundOverlay} />
       <CTAContainer />
       <Synopsis />
     </div>
