@@ -2,13 +2,10 @@ import styles from "./Content.module.scss";
 import { motion, Variants } from "framer-motion";
 import AnimateTextArray from "./AnimateTextArray";
 
-const intro = ["hi", "i'm", "evan"];
+const intro = ["it", "me,", "evan"];
 
 const ulVariants: Variants = {
-  hidden: { opacity: 1, scale: 0 },
   visible: {
-    opacity: 1,
-    scale: 1,
     transition: {
       delayChildren: 0.9,
       staggerChildren: 0.5,
@@ -17,11 +14,8 @@ const ulVariants: Variants = {
 };
 
 const liVariants: Variants = {
-  hidden: { y: 20, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-  },
+  hidden: { opacity: 0 },
+  visible: { opacity: 1},
 };
 
 const CTAContainer = () => (

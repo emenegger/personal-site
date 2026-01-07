@@ -3,9 +3,7 @@ import LayoutText from "./LayoutText";
 import { LayoutType } from "./types";
 
 const parentVariants: Variants = {
-  hidden: { opacity: 0 },
   visible: {
-    opacity: 1,
     transition: {
       delay: 0,
       delayChildren: 0.5,
