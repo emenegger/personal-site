@@ -1,3 +1,5 @@
+import { motion, Variants } from "framer-motion";
+import { useCallback } from "react";
 import { LayoutType } from "./types";
 
 const colors = {
@@ -6,19 +8,29 @@ const colors = {
 } as const;
 
 interface LayoutTextsProps {
-  handleSetLayout: (args: LayoutType) => void;
+  onClick: (args: LayoutType) => void;
   label: LayoutType;
   layout: LayoutType;
 }
 
-const LayoutText = ({ handleSetLayout, label, layout }: LayoutTextsProps) => {
+const LayoutText = ({ onClick, label, layout }: LayoutTextsProps) => {
+  const isActive = layout === label;
+
+  const handleOnLabelSelect = useCallback(() => {
+    onClick(label);
+  }, [label, onClick]);
+
   return (
-    <p
-      className={`text-sm ${layout === label ? colors.active : colors.inactive}`}
-      onClick={() => handleSetLayout(label)}
+    <motion.p
+      className={`text-sm cursor-pointer ${
+        isActive ? colors.active : colors.inactive
+      } hover:text-slate-200`}
+      onClick={handleOnLabelSelect}
+      animate={{ scale: isActive ? [1, 1.2, 1] : 1 }}
+      transition={{ duration: 0.75, ease: "easeInOut", delay: 2 }}
     >
       {label} view
-    </p>
+    </motion.p>
   );
 };
 

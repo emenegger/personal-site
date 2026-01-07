@@ -85,6 +85,18 @@ export const images3: Images[] = [
     coordinates: [-3.868422, 36.749495],
   },
   {
+    location: "salar de uyuni, bolivia",
+    camera: "canon eos 650",
+    orientation: "landscape",
+    date: "10/2/2025", // update date
+    src: salurDeUyuni,
+    stampSrc: boliviaPassportStamp,
+    alt: "salar de uyuni",
+    id: 7,
+    countryId: "068",
+    coordinates: [-67.765335, -20.102586],
+  },
+  {
     location: "progresso, mexico",
     camera: "canon eos 650",
     orientation: "landscape",
@@ -143,18 +155,6 @@ export const images3: Images[] = [
     id: 6,
     countryId: "152",
     coordinates: [-72.990258, -50.948319],
-  },
-  {
-    location: "salar de uyuni, bolivia",
-    camera: "canon eos 650",
-    orientation: "landscape",
-    date: "10/2/2025", // update date
-    src: salurDeUyuni,
-    stampSrc: boliviaPassportStamp,
-    alt: "salar de uyuni",
-    id: 7,
-    countryId: "068",
-    coordinates: [-67.765335, -20.102586],
   },
   {
     location: "berlin, germany",
