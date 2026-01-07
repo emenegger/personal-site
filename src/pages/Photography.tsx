@@ -3,10 +3,10 @@ import {
   CarouselLayout,
   GridLayout,
   MapLayout,
-  LayoutText,
+  LayoutMenu,
+  images3,
   type Images,
   type LayoutType,
-  images3,
 } from "features/photography";
 
 const layouts: Record<string, LayoutType> = {
@@ -38,13 +38,11 @@ const Photography = ({ images }: { images: Images[] }) => {
   return (
     <div className="relative min-h-screen w-screen">
       <div className="fixed top-18 right-0 z-50 flex flex-col justify-end font-mono align-end">
-        {Object.values(layouts).map((key) => (
-          <LayoutText
-            handleSetLayout={handleSetLayout}
-            type={key}
-            layout={layout}
-          />
-        ))}
+        <LayoutMenu
+          labels={Object.values(layouts)}
+          onSelect={handleSetLayout}
+          currentLayout={layout}
+        />
       </div>
       {renderLayout()}
     </div>

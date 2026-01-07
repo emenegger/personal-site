@@ -1,4 +1,4 @@
-import { LayoutType } from "../../pages/Photography";
+import { LayoutType } from "./types";
 
 const colors = {
   active: "text-slate-100",
@@ -7,17 +7,17 @@ const colors = {
 
 interface LayoutTextsProps {
   handleSetLayout: (args: LayoutType) => void;
-  type: LayoutType;
+  label: LayoutType;
   layout: LayoutType;
 }
 
-const LayoutText = ({ handleSetLayout, type, layout }: LayoutTextsProps) => {
+const LayoutText = ({ handleSetLayout, label, layout }: LayoutTextsProps) => {
   return (
     <p
-      className={`text-sm ${layout === type ? colors.active : colors.inactive}`}
-      onClick={() => handleSetLayout(type)}
+      className={`text-sm ${layout === label ? colors.active : colors.inactive}`}
+      onClick={() => handleSetLayout(label)}
     >
-      {type} view
+      {label} view
     </p>
   );
 };

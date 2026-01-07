@@ -26,20 +26,19 @@ const GridLayout = ({ images }: { images: Images[] }) => {
             orientation,
             coordinates,
           }) => (
-            <div>
-              <ImageCard
-                orientation={orientation}
-                src={src}
-                location={location}
-                camera={camera}
-                date={date}
-                stampSrc={stampSrc}
-                alt={alt}
-                id={id}
-                countryId={countryId}
-                coordinates={coordinates}
-              />
-            </div>
+            <ImageCard
+              orientation={orientation}
+              src={src}
+              location={location}
+              camera={camera}
+              date={date}
+              stampSrc={stampSrc}
+              alt={alt}
+              id={id}
+              countryId={countryId}
+              coordinates={coordinates}
+              key={id}
+            />
           )
         )}
       </div>
@@ -57,20 +56,19 @@ const GridLayout = ({ images }: { images: Images[] }) => {
             orientation,
             coordinates,
           }) => (
-            <div>
-              <ImageCard
-                orientation={orientation}
-                src={src}
-                location={location}
-                camera={camera}
-                date={date}
-                stampSrc={stampSrc}
-                alt={alt}
-                id={id}
-                countryId={countryId}
-                coordinates={coordinates}
-              />
-            </div>
+            <ImageCard
+              orientation={orientation}
+              src={src}
+              location={location}
+              camera={camera}
+              date={date}
+              stampSrc={stampSrc}
+              alt={alt}
+              id={id}
+              countryId={countryId}
+              coordinates={coordinates}
+              key={id}
+            />
           )
         )}
       </div>

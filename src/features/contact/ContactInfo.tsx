@@ -1,7 +1,7 @@
 import React from "react";
 import { ContactInfoType } from "./types";
 
-type ContactInfoProps = ContactInfoType;
+type ContactInfoProps = Omit<ContactInfoType, 'id'>;
 
 const ContactInfo = ({ icon, handle, link }: ContactInfoProps) => {
   return (
