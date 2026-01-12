@@ -1,5 +1,5 @@
 "use strict";
-import { Images, images3 } from "./images";
+import { images3 } from "./images";
 import ImageCard from "./ImageCard";
 import Map, { MapRef } from "./Map";
 import { useCallback, useRef, useState } from "react";
@@ -13,6 +13,7 @@ import ZoomInIcon from "@mui/icons-material/ZoomIn";
 import ZoomOutIcon from "@mui/icons-material/ZoomOut";
 import { aggregatePhotosByLocation } from "./util";
 import CarouselLayout from "./CarouselLayout";
+import { Images } from "./types";
 
 const MapLayout = ({ images }: { images: Images[] }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -42,12 +43,13 @@ const MapLayout = ({ images }: { images: Images[] }) => {
     alt,
     id,
     countryId,
-    coordinates
+    coordinates,
+    isPriority,
   } = currentImage ?? {};
 
-  const currentImages = images.filter(ele => ele.countryId === currentPhotoId);
+  // const currentImages = images.filter(ele => ele.countryId === currentPhotoId);
 
-  console.log('*** currentImages', images.filter(ele => ele.countryId === currentPhotoId))
+  // console.log('*** currentImages', images.filter(ele => ele.countryId === currentPhotoId))
 
   const heatPoints = aggregatePhotosByLocation(images); 
 
@@ -109,6 +111,7 @@ const MapLayout = ({ images }: { images: Images[] }) => {
                 onClick={handleClick}
                 coordinates={coordinates}
                 showCloseButton
+                isPriority={isPriority}
               />
               {/* <CarouselLayout images={currentImages} /> // implement this tomorrow */}
             </div>

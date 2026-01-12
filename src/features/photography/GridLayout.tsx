@@ -1,12 +1,13 @@
 import React from "react";
-import { Images } from "./images";
 import ImageCard from "./ImageCard";
+import { Images } from "./types";
 
 const GridLayout = ({ images }: { images: Images[] }) => {
-  const landscapeImages = images.filter(
+  const gridImages = images.filter(img => img.tags.includes('grid'));
+  const landscapeImages = gridImages.filter(
     ({ orientation }) => orientation === "landscape"
   );
-  const portraitImages = images.filter(
+  const portraitImages = gridImages.filter(
     ({ orientation }) => orientation === "portrait"
   );
 
@@ -25,6 +26,7 @@ const GridLayout = ({ images }: { images: Images[] }) => {
             countryId,
             orientation,
             coordinates,
+            isPriority
           }) => (
             <ImageCard
               orientation={orientation}
@@ -38,6 +40,7 @@ const GridLayout = ({ images }: { images: Images[] }) => {
               countryId={countryId}
               coordinates={coordinates}
               key={id}
+              isPriority={isPriority}
             />
           )
         )}
@@ -55,6 +58,7 @@ const GridLayout = ({ images }: { images: Images[] }) => {
             countryId,
             orientation,
             coordinates,
+            isPriority
           }) => (
             <ImageCard
               orientation={orientation}
@@ -68,6 +72,7 @@ const GridLayout = ({ images }: { images: Images[] }) => {
               countryId={countryId}
               coordinates={coordinates}
               key={id}
+              isPriority={isPriority}
             />
           )
         )}

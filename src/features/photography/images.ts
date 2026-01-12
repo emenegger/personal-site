@@ -49,27 +49,7 @@ import {
   italy,
   italyPassportStamp,
 } from "../../../public/images";
-
-export interface Images {
-  location: string | undefined;
-  camera:
-    | "canon eos 650"
-    | "nikon d750"
-    | "nikon d7500"
-    | "unknown"
-    | "dji mini 2"
-    | "samsung galaxy s7"
-    | "iphone 14"
-    | undefined;
-  date: string | undefined;
-  src: StaticImageData | undefined;
-  stampSrc: StaticImageData | undefined;
-  orientation: "portrait" | "landscape" | undefined;
-  alt: string | undefined;
-  id: number | undefined;
-  countryId: string | undefined;
-  coordinates: [lon: number, lat: number] | undefined;
-}
+import { Images } from "./types";
 
 export const images3: Images[] = [
   {
@@ -83,6 +63,8 @@ export const images3: Images[] = [
     id: 1,
     countryId: "724",
     coordinates: [-3.868422, 36.749495],
+    tags: ["map", "carousel", "grid"],
+    isPriority: true,
   },
   {
     location: "salar de uyuni, bolivia",
@@ -95,6 +77,8 @@ export const images3: Images[] = [
     id: 7,
     countryId: "068",
     coordinates: [-67.765335, -20.102586],
+    tags: ["map", "carousel", "grid"],
+    isPriority: true,
   },
   {
     location: "progresso, mexico",
@@ -107,6 +91,8 @@ export const images3: Images[] = [
     id: 2,
     countryId: "484",
     coordinates: [-89.655851, 21.288643],
+    tags: ["map", "carousel", "grid"],
+    isPriority: true,
   },
   {
     location: "olympia, washington",
@@ -119,6 +105,8 @@ export const images3: Images[] = [
     id: 5,
     countryId: "840",
     coordinates: [-122.909858, 47.03037],
+    tags: ["map", "carousel", "grid"],
+    isPriority: true,
   },
   {
     location: "malaga, spain",
@@ -131,6 +119,8 @@ export const images3: Images[] = [
     id: 3,
     countryId: "724",
     coordinates: [-4.416854, 36.71837],
+    tags: ["map", "carousel", "grid"],
+    isPriority: false,
   },
   {
     location: "paris, france",
@@ -143,6 +133,8 @@ export const images3: Images[] = [
     id: 4,
     countryId: "250",
     coordinates: [2.293333, 48.859189],
+    tags: ["map", "carousel", "grid"],
+    isPriority: false,
   },
   {
     location: "torres del paine, chile",
@@ -155,6 +147,8 @@ export const images3: Images[] = [
     id: 6,
     countryId: "152",
     coordinates: [-72.990258, -50.948319],
+    tags: ["map", "carousel", "grid"],
+    isPriority: false,
   },
   {
     location: "berlin, germany",
@@ -167,6 +161,8 @@ export const images3: Images[] = [
     id: 8,
     countryId: "276",
     coordinates: [13.439584, 52.487216],
+    tags: ["map", "carousel", "grid"],
+    isPriority: false,
   },
   {
     location: "tayrona, colombia",
@@ -179,6 +175,8 @@ export const images3: Images[] = [
     id: 9,
     countryId: "170",
     coordinates: [-74.076313, 11.316167],
+    tags: ["map", "carousel", "grid"],
+    isPriority: false,
   },
   {
     location: "saint petersburg, russia",
@@ -191,6 +189,8 @@ export const images3: Images[] = [
     id: 10,
     countryId: "643",
     coordinates: [30.316997, 59.90952],
+    tags: ["map", "carousel", "grid"],
+    isPriority: false,
   },
   {
     location: "ko phi phi, thailand",
@@ -203,6 +203,8 @@ export const images3: Images[] = [
     id: 11,
     countryId: "764",
     coordinates: [98.77125, 7.739207],
+    tags: ["map", "carousel", "grid"],
+    isPriority: false,
   },
   {
     location: "zion national park, utah",
@@ -215,6 +217,8 @@ export const images3: Images[] = [
     id: 12,
     countryId: "840",
     coordinates: [-112.953987, 37.266807],
+    tags: ["map", "carousel", "grid"],
+    isPriority: false,
   },
   {
     location: "union, maine",
@@ -227,6 +231,8 @@ export const images3: Images[] = [
     id: 13,
     countryId: "840",
     coordinates: [-69.254181, 44.173768],
+    tags: ["map", "carousel", "grid"],
+    isPriority: false,
   },
   {
     location: "la paz, bolivia",
@@ -239,6 +245,8 @@ export const images3: Images[] = [
     id: 14,
     countryId: "068",
     coordinates: [-67.765335, -20.102586],
+    tags: ["map", "carousel", "grid"],
+    isPriority: false,
   },
   {
     location: "merida, mexico",
@@ -251,6 +259,8 @@ export const images3: Images[] = [
     id: 15,
     countryId: "484",
     coordinates: [-89.626936, 21.070894],
+    tags: ["map", "carousel", "grid"],
+    isPriority: false,
   },
   {
     location: "mexico city, mexico",
@@ -263,6 +273,8 @@ export const images3: Images[] = [
     id: 16,
     countryId: "484",
     coordinates: [-99.154574, 19.434575],
+    tags: ["map", "carousel", "grid"],
+    isPriority: false,
   },
   {
     location: "puerto escondido, mexico",
@@ -275,6 +287,8 @@ export const images3: Images[] = [
     id: 17,
     countryId: "484",
     coordinates: [-97.096481, 15.868563],
+    tags: ["map"],
+    isPriority: false,
   },
   {
     location: "vík, iceland",
@@ -287,6 +301,8 @@ export const images3: Images[] = [
     id: 18,
     countryId: "352",
     coordinates: [-19.00485, 63.414944],
+    tags: ["map", "carousel", "grid"],
+    isPriority: false,
   },
   {
     location: "alotenango, guatemala",
@@ -299,6 +315,8 @@ export const images3: Images[] = [
     id: 19,
     countryId: "320",
     coordinates: [-90.796766, 14.488878],
+    tags: ["map"],
+    isPriority: false,
   },
   {
     location: "nashville, tennesee",
@@ -311,6 +329,8 @@ export const images3: Images[] = [
     id: 20,
     countryId: "840",
     coordinates: [-86.746411, 36.188267],
+    tags: ["map"],
+    isPriority: false,
   },
   {
     location: "medellin, colombia",
@@ -323,6 +343,8 @@ export const images3: Images[] = [
     id: 21,
     countryId: "170",
     coordinates: [-75.589971, 6.255971],
+    tags: ["map"],
+    isPriority: false,
   },
   {
     location: "beacon, new york",
@@ -335,6 +357,8 @@ export const images3: Images[] = [
     id: 22,
     countryId: "840",
     coordinates: [-73.950746, 41.489961],
+    tags: ["map", "carousel", "grid"],
+    isPriority: false,
   },
   {
     location: "hanoi, vietnam",
@@ -347,6 +371,8 @@ export const images3: Images[] = [
     id: 23,
     countryId: "704",
     coordinates: [105.849924, 21.034195],
+    tags: ["map", "carousel", "grid"],
+    isPriority: false,
   },
   {
     location: "ha long bay, vietnam",
@@ -359,6 +385,8 @@ export const images3: Images[] = [
     id: 24,
     countryId: "704",
     coordinates: [107.028774, 21.006351],
+    tags: ["map", "carousel", "grid"],
+    isPriority: false,
   },
   {
     location: "bad lands, south dakota",
@@ -371,6 +399,8 @@ export const images3: Images[] = [
     id: 25,
     countryId: "840",
     coordinates: [-102.317581, 43.849538],
+    tags: ["map", "carousel", "grid"],
+    isPriority: false,
   },
   {
     location: "guanacaste province, costa rica",
@@ -383,6 +413,8 @@ export const images3: Images[] = [
     id: 26,
     countryId: "188",
     coordinates: [-84.982203, 10.547678],
+    tags: ["map"],
+    isPriority: false,
   },
   {
     location: "lima, peru",
@@ -394,7 +426,9 @@ export const images3: Images[] = [
     alt: "lima",
     id: 27,
     countryId: "604",
-    coordinates: [-77.021758, -12.145482], 
+    coordinates: [-77.021758, -12.145482],
+    tags: ["map"],
+    isPriority: false,
   },
   {
     location: "budapest, hungary",
@@ -407,6 +441,8 @@ export const images3: Images[] = [
     id: 28,
     countryId: "348",
     coordinates: [19.048045, 47.486703],
+    tags: ["map"],
+    isPriority: false,
   },
   {
     location: "bratislava, slovakia",
@@ -419,6 +455,8 @@ export const images3: Images[] = [
     id: 29,
     countryId: "703",
     coordinates: [17.104057, 48.142089],
+    tags: ["map"],
+    isPriority: false,
   },
   {
     location: "florence, italy",
@@ -431,6 +469,8 @@ export const images3: Images[] = [
     id: 30,
     countryId: "380",
     coordinates: [11.254825, 43.767886],
+    tags: ["map"],
+    isPriority: false,
   },
 ];
 

@@ -1,11 +1,12 @@
 import Image from "next/image";
-import { Images } from "./images";
 import { useCallback } from "react";
 import { placeholder } from "../../../public/images";
+import { Images } from "./types";
 
-type ImageCardProps = Images & {
+type ImageCardProps = Omit<Images, "tags"> & {
   onClick?: (args: string | null) => void;
   showCloseButton?: boolean;
+  sizes?: string;
 };
 
 const ImageCard = ({
@@ -18,6 +19,8 @@ const ImageCard = ({
   alt = "",
   onClick,
   showCloseButton = false,
+  sizes = "(max-width: 768px) 100vw, 50vw",
+  isPriority,
 }: ImageCardProps) => {
   const aspectRatio =
     orientation === "landscape" ? "aspect-[4/3]" : "aspect-[3/4]";
@@ -32,9 +35,7 @@ const ImageCard = ({
   }, [onClick]);
 
   return (
-    <div
-      className={`bg-amber-50 p-4 pb-8 shadow-xl rounded-lg mb-4`}
-    >
+    <div className={`bg-amber-50 p-4 pb-8 shadow-xl rounded-lg mb-4`}>
       {showCloseButton && (
         <div
           className={`flex flex-col text-gray-700 font-mono text-sm sm:text-base`}
@@ -44,7 +45,15 @@ const ImageCard = ({
         </div>
       )}
       <div className={`relative ${aspectRatio} bg-amber-50`}>
-        <Image src={src} alt={alt} fill className="object-cover pb-4" />
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          className="object-cover pb-4"
+          loading={isPriority ? 'eager' : 'lazy'}
+          priority={isPriority}
+          sizes={sizes}
+        />
       </div>
       <div className="flex flex-row justify-between">
         <div className={`flex flex-col text-gray-700 font-mono ${textSize}`}>

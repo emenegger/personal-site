@@ -1,34 +1,47 @@
 import React, { useCallback, useMemo, useState } from "react";
-import { Images } from "./images";
 import ImageCard from "./ImageCard";
 import ImageWrapper from "./ImageWrapper";
+import { Images } from "./types";
 
 const CarouselLayout = ({ images }: { images: Images[] }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const windowSize = 5;
-  
-  const landscapeImages = useMemo(
-    () => images.filter(img => img.orientation === 'landscape'),
+
+  const filteredImages = useMemo(
+    () =>
+      images.filter(
+        (img) =>
+          img.orientation === "landscape" && img.tags?.includes('carousel')
+      ),
     [images]
   );
-  
-  const currentWindow = useMemo(
-    () => Array.from(
-      { length: windowSize }, 
-      (_, i) => landscapeImages[(currentIndex + i) % landscapeImages.length]
-    ),
-    [landscapeImages, currentIndex, windowSize]
+
+  const currentWindow = useMemo(() => {
+    if (filteredImages.length === 0) {
+      return [];
+    }
+    return Array.from(
+      { length: windowSize },
+      (_, i) => filteredImages[(currentIndex + i) % filteredImages.length]
+    );
+  }, [filteredImages, currentIndex, windowSize]);
+
+  const handleClick = useCallback(
+    (direction: "left" | "right") => {
+      setCurrentIndex((prev) => {
+        if (direction === "left") {
+          return prev <= 0 ? filteredImages.length - 1 : prev - 1;
+        } else {
+          return (prev + 1) % filteredImages.length;
+        }
+      });
+    },
+    [filteredImages.length]
   );
-  
-  const handleClick = useCallback((direction: 'left' | 'right') => {
-    setCurrentIndex(prev => {
-      if (direction === 'left') {
-        return prev <= 0 ? landscapeImages.length - 1 : prev - 1;
-      } else {
-        return (prev + 1) % landscapeImages.length;
-      }
-    });
-  }, [landscapeImages.length]);
+
+  if (!currentWindow) {
+    return null;
+  }
 
   return (
     <div className="relative min-h-screen w-screen bg-gray-300 flex flex-col justify-center items-center">
@@ -45,15 +58,12 @@ const CarouselLayout = ({ images }: { images: Images[] }) => {
               id,
               countryId,
               orientation,
-              coordinates
+              coordinates,
+              isPriority
             },
             index
           ) => (
-            <ImageWrapper
-              index={index}
-              id={id}
-              onClick={handleClick}
-            >
+            <ImageWrapper index={index} id={id} onClick={handleClick} key={id}>
               <ImageCard
                 orientation={orientation}
                 src={src}
@@ -65,6 +75,7 @@ const CarouselLayout = ({ images }: { images: Images[] }) => {
                 id={id}
                 countryId={countryId}
                 coordinates={coordinates}
+                isPriority={isPriority}
               />
             </ImageWrapper>
           )

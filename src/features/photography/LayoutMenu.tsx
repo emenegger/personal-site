@@ -32,7 +32,7 @@ const LayoutMenu = ({ labels, currentLayout, onSelect }: LayoutMenuProps) => {
       className="px-2"
     >
       {labels.map((label, index) => (
-        <motion.div variants={childVariants}>
+        <motion.div variants={childVariants} key={`${label}-${index}`}>
           <LayoutText
             onClick={onSelect}
             label={label}

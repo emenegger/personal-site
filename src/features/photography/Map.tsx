@@ -244,7 +244,6 @@ const Map = forwardRef<MapRef, MapProps>(({ onClick, heatPoints }, ref) => {
           })
           .on("click", function (_e, d) {
             onClick(d.id);
-            console.log("***", d);
           });
 
         heatPoints.forEach((point, index) => {

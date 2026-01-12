@@ -11,9 +11,9 @@ const MainNavbar = () => {
             </Link>
           </div>
           <div className="flex items-center gap-8 ">
-            <Link href="/Projects" className="text-black hover:text-gray-200 transition text-xs md:text-sm">
+            {/* <Link href="/Projects" className="text-black hover:text-gray-200 transition text-xs md:text-sm">
               web
-            </Link>
+            </Link> */}
             <Link href="/Photography" className="text-black hover:text-gray-600 transition text-xs md:text-sm">
               photography
             </Link>
