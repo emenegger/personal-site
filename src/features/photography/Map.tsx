@@ -322,7 +322,7 @@ const Map = forwardRef<MapRef, MapProps>(({ onClick, heatPoints }, ref) => {
     return () => {
       g.selectAll("*").remove();
     };
-  }, []);
+  }, [heatPoints, onClick]);
 
   return <svg ref={svgRef}></svg>;
 });
