@@ -327,4 +327,6 @@ const Map = forwardRef<MapRef, MapProps>(({ onClick, heatPoints }, ref) => {
   return <svg ref={svgRef}></svg>;
 });
 
+Map.displayName = 'Map';
+
 export default Map;
