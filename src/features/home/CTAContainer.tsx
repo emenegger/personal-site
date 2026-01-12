@@ -2,7 +2,7 @@ import styles from "./Content.module.scss";
 import { motion, Variants } from "framer-motion";
 import AnimateTextArray from "./AnimateTextArray";
 
-const intro = ["it", "me,", "evan"];
+const intro = ["hi", "i'm", "evan"];
 
 const ulVariants: Variants = {
   visible: {

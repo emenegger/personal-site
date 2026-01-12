@@ -6,18 +6,16 @@
 
 .homePageContainer {
   position: relative;
+  min-height: 100vh;
 }
 
 .foregroundImage {
-  position: relative;
-  min-height: 100vh;
-  min-width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
   width: 100%;
   z-index: 4;
-  background-image: url("/images/tdp_no_background.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
 }
 
 .backgroundImage {
@@ -27,10 +25,12 @@
   width: 100%;
   z-index: 1;
   overflow: hidden;
-  background-image: url("/images/DSC_9716.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+}
+
+.backgroundImageFill,
+.foregroundImageFill {
+  object-fit: cover;
+  object-position: center;
 }
 
 .backgroundOverlay {

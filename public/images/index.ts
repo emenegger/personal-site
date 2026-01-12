@@ -50,6 +50,8 @@ import slovakia from "./bratislava.jpg";
 import slovakiaPassportStamp from "./slovakia_passport_stamp.jpeg";
 import italy from "./italy.jpg";
 import italyPassportStamp from "./italy_passport_stamp.jpeg";
+import torresDelPaineNoBackground from './tdp_no_background.png'
+import torresDelPaine from './DSC_9716.jpg'
 
 export {
   beach,
@@ -103,5 +105,7 @@ export {
   slovakia,
   slovakiaPassportStamp,
   italy,
-  italyPassportStamp
+  italyPassportStamp,
+  torresDelPaineNoBackground,
+  torresDelPaine
 };
