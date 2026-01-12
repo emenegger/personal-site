@@ -1,4 +1,4 @@
-import { Images } from "./images";
+import { Images } from "./types";
 
 export interface LocationHeatPoint {
   coordinates: [number, number] | undefined;
