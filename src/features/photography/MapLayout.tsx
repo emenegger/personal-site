@@ -59,7 +59,7 @@ const MapLayout = ({ images }: { images: Images[] }) => {
       style={{ backgroundColor: colors.background }}
     >
       <div className="font-mono flex flex-col md:flex-col justify-center items-center text-center text-[#F5F5DC]">
-        <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl px-2 text-slate-100">
+        <h1 className="text-xl md:text-3xl lg:text-4xl xl:text-5xl px-2 text-slate-100">
           photography across the world
         </h1>
         <p className="text-sm md:text-lg px-2 text-slate-100">

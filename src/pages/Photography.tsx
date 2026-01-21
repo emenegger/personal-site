@@ -8,6 +8,7 @@ import {
   type Images,
   type LayoutType,
 } from "features/photography";
+import MenuIcon from "@mui/icons-material/Menu";
 
 const layouts: Record<string, LayoutType> = {
   map: "map",
@@ -17,8 +18,10 @@ const layouts: Record<string, LayoutType> = {
 
 const Photography = ({ images }: { images: Images[] }) => {
   const [layout, setLayout] = useState<LayoutType>(layouts.grid);
+  const [isMenuOpen, setIsMenuOpen] = useState(true);
 
   const handleSetLayout = useCallback((layout: LayoutType) => {
+    setIsMenuOpen(false);
     setLayout(layout);
   }, []);
 
@@ -38,11 +41,19 @@ const Photography = ({ images }: { images: Images[] }) => {
   return (
     <div className="relative min-h-screen w-screen">
       <div className="fixed top-18 right-0 z-50 flex flex-col justify-end font-mono align-end">
-        <LayoutMenu
-          labels={Object.values(layouts)}
-          onSelect={handleSetLayout}
-          currentLayout={layout}
-        />
+        {!isMenuOpen && (
+          <MenuIcon
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="text-slate-500 my-1 mx-1 rounded-sm border-slate-200 shadow-sm md:hidden" // bg-slate-100/10
+          />
+        )}
+        <div className={`${isMenuOpen ? "block" : "hidden"}`}>
+          <LayoutMenu
+            labels={Object.values(layouts)}
+            onSelect={handleSetLayout}
+            currentLayout={layout}
+          />
+        </div>
       </div>
       {renderLayout()}
     </div>
