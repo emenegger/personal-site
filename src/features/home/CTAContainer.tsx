@@ -1,13 +1,14 @@
 import styles from "./Content.module.scss";
 import { motion, Variants } from "framer-motion";
 import AnimateTextArray from "./AnimateTextArray";
+import { START_INTRO_ANIMATION_TIMING } from "./constants";
 
 const intro = ["hi", "i'm", "evan"];
 
 const ulVariants: Variants = {
   visible: {
     transition: {
-      delayChildren: 0.9,
+      delayChildren: START_INTRO_ANIMATION_TIMING,
       staggerChildren: 0.5,
     },
   },

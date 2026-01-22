@@ -1,5 +1,6 @@
 import { Variants } from "framer-motion";
 import AnimateTextArray from "./AnimateTextArray";
+import { START_SYNOPSIS_ANIMATION_TIMING } from "./constants";
 import styles from "./Synopsis.module.scss";
 
 const synopsis2 = [
@@ -15,8 +16,8 @@ const ulVariants: Variants = {
     opacity: 1,
     scale: 1,
     transition: {
-      delay: 2,
-      delayChildren: 2.3,
+      delay: START_SYNOPSIS_ANIMATION_TIMING,
+      delayChildren: START_SYNOPSIS_ANIMATION_TIMING + 0.3,
       staggerChildren: 0.5,
     },
   },
