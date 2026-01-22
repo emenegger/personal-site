@@ -3,9 +3,9 @@ import {
   LOADING_STATE_ANIMATION_DELAY,
   LOADING_STATE_DURATION,
 } from "./constants";
+import Image from "next/image";
 import styles from "./Content.module.scss";
-
-
+import { ralphWiggum } from "@/../public/images";
 
 const LoadingState = () => {
   return (
@@ -17,7 +17,26 @@ const LoadingState = () => {
         duration: LOADING_STATE_DURATION,
         delay: LOADING_STATE_ANIMATION_DELAY,
       }}
-    ></motion.div>
+    >
+      <motion.div
+        animate={{ rotate: 360 }}
+        transition={{
+          duration: 2,
+          repeat: 1,
+          ease: "linear",
+          delay: 0.3,
+        }}
+      >
+        <Image
+          src={ralphWiggum}
+          sizes="5rem"
+          quality={10}
+          alt="ralph"
+          width={80}
+          height={80}
+        />
+      </motion.div>
+    </motion.div>
   );
 };
 

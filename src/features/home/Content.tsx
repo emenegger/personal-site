@@ -27,6 +27,8 @@ const Content = () => {
 
   const isLoading = isBackgroundLoading || isForegroundLoading;
 
+  if (isLoading) debugger;
+
   return (
     <div className={styles.homePageContainer}>
       {/* @ts-ignore */}
