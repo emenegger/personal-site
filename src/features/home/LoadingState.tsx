@@ -18,6 +18,23 @@ const LoadingState = () => {
         delay: LOADING_STATE_ANIMATION_DELAY,
       }}
     >
+      <div className={styles.dotsContainer}>
+        <span>im learning</span>
+        {[0, 1, 2].map((i) => (
+          <motion.span
+            key={i}
+            animate={{ opacity: [0, 1, 0] }}
+            transition={{
+              duration: 1.5,
+              repeat: Infinity,
+              delay: i * 0.15,
+              ease: "easeInOut",
+            }}
+          >
+            .
+          </motion.span>
+        ))}
+      </div>
       <motion.div
         animate={{ rotate: 360 }}
         transition={{
