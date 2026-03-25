@@ -22,8 +22,17 @@
   align-items: center;
 }
 
+.loadingContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .dotsContainer {
   font-size: x-large;
+  margin: 2rem;
+  font-family: var(--font-major-mono);
 }
 
 .foregroundImage {
